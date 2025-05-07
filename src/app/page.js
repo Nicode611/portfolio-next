@@ -134,28 +134,28 @@ function App() {
           </ul>
         </nav>
       </header>
-      <main className="h-full">
+      <main className="flex flex-col lg:flex-row h-full">
         <section className="px-10 py-10">
           <section>
-            <p className='text-sm'>
+            <p className='text-sm max-w-[436px]'>
               Je suis actuellement à la recherche d&apos;une <span className="bold">alternance</span> en développement informatique pour poursuivre mes études en tant que concepteur développeur d&apos;applications <span className="bold">(Bac+3)</span>.<br />
             </p>
             <div className="mt-5">
-              <div className="icon-section">
+              <div className="flex items-center gap-2.5">
                 <Image className="description-ico" src="/images/svg/mail.png" alt="" width={30} height={30} />
                 <span>nicolas.guigay.ng@gmail.com</span>
               </div>
-              <div className="icon-section">
+              <div className="flex items-center gap-2.5">
                 <Image className="description-ico" src="/images/svg/phone.png" alt="" width={30} height={30} />
                 <span>06.27.20.14.44</span>
               </div>
-              <div className="icon-section">
+              <div className="flex items-center gap-2.5">
                 <Image className="description-ico" src="/images/svg/github.png" alt="" width={30} height={30} />
                 <span>Nicode611</span>
               </div>
             </div>
           </section>
-          <section className="mt-10">
+          <section className="hidden lg:block mt-10">
             <h2 className="text-xl mb-5">MES PROJETS :</h2>
             <ul className="space-y-3">
               <li onClick={() => handleProject('voisins')} className="flex items-center gap-2.5"><Image src="/images/logo-voisins.webp" alt="Logo de Hello voisins" width={40} height={40} /><span>HELLO VOISINS</span></li>
@@ -169,26 +169,24 @@ function App() {
             </ul>
           </section>
         </section>
-        <section className="absolute top-0 right-[25vw] flex flex-col items-center w-[55%] h-screen mt-3 z-0 md:mt-5">
+        <section className="flex flex-col items-center w-[55%] h-screen mt-3 z-0 md:mt-5">
           <div className="relative max-w-[446px] h-[35%] overflow-hidden">
             <Image
               src={projects[currentProject].img}
               alt=""
               width={800}
               height={800}
-              className="w-full h-full object-cover border border-gray-200"
-              style={{ objectFit: 'contain' }}
+              className="w-full h-full"
+              style={{ objectFit: 'cover' }}
             />
           </div>
           <h3 className={`text-3xl mt-3.75 backdrop-blur-sm ${showContent ? 'active' : ''}`}>{projects[currentProject].name}</h3>
           <p className={`text-justify backdrop-blur-sm ${showContent ? 'active' : ''}`} dangerouslySetInnerHTML={{ __html: projects[currentProject].desc }}></p>
           <a href={projects[currentProject].link} className={`inline-block px-7.5 py-3.75 text-lg font-bold text-white bg-primary-500 rounded-full text-center text-decoration-none cursor-pointer shadow-md transition-all ${showContent ? 'active' : ''}`} target="_blank" rel="noopener noreferrer">Voir le projet</a>
         </section>
-        <div className="container">
           <div className="triangle triangle1"></div>
           <div className="triangle triangle2"></div>
           <div className="triangle triangle3"></div>
-        </div>
       </main>
     </div>
   );
