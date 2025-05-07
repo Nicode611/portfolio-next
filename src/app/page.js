@@ -72,47 +72,75 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
-      <header>
+    <div className="min-h-screen min-w-screen bg-primary-900 text-white">
+      <header className='pt-2.5'>
         <nav>
-          <ul>
+          <ul className='flex justify-between'>
             <li className="profile-infos">
-              <div className="profile-picture"></div>
-              <div>
-                <h1 className="name">NICOLAS GUIGAY</h1>
-                <h2 className="job">DEVELOPPEUR</h2>
+              <div className="w-24 h-24 rounded-full bg-cover bg-center" style={{ backgroundImage: 'url(/images/profile-picture.webp)' }}></div>
+              <div className="flex flex-col justify-center pl-2.5">
+                <h1 className="text-2xl">NICOLAS GUIGAY</h1>
+                <h2 className="text-xl">DEVELOPPEUR</h2>
               </div>
             </li>
-            <li className="contact-section">
-              <a href="mailto:nicolas.guigay.ng@gmail.com?subject=Contact portfolio" className="contact-btn">CONTACT</a>
-              <div className="hamburger-section">
+            <li className="fixed flex items-center w-auto z-1">
+              <a
+                href="mailto:nicolas.guigay.ng@gmail.com?subject=Contact portfolio"
+                className="hidden lg:block fixed top-5 right-[45px] px-[30px] py-[15px] text-[18px] font-bold text-black bg-white rounded-[50px] text-center no-underline cursor-pointer shadow-[0_4px_8px_rgba(0,0,0,0.2)] transition-all duration-300 z-[1000]"
+              >CONTACT</a>
+              <div className="lg:hidden block fixed right-[25px] top-[30px] z-2">
                 <div className={`hamburger-btn ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
-                  <div className="burger-box-1"></div>
-                  <div className="burger-box-2"></div>
-                  <div className="burger-box-3"></div>
+                  <div className="w-[35px] h-[7px] bg-white shadow-[0px_0px_10px_black] m-[5px]"></div>
+                  <div className="w-[35px] h-[7px] bg-white shadow-[0px_0px_10px_black] m-[5px]"></div>
+                  <div className="w-[35px] h-[7px] bg-white shadow-[0px_0px_10px_black] m-[5px]"></div>
                 </div>
-                <nav className={`menu ${menuOpen ? 'open' : ''}`}>
-                  <ul>
-                    <li onClick={() => handleProject('voisins')}>HELLO VOISINS</li>
-                    <li onClick={() => handleProject('garage')}>GARAGE V. PARROT</li>
-                    <li onClick={() => handleProject('mb')}>MINUTE BEAUTE</li>
-                    <li onClick={() => handleProject('sellerie')}>EM SELLERIE</li>
+                <nav
+                  className={`fixed top-0 ${menuOpen ? 'right-0' : '-right-[250px]'} w-[250px] h-screen bg-[#0b3c52d3] backdrop-blur-[10px] transition-right duration-400 px-2.5 clip-path-polygon-0-0-100-0-100-10-100-100-100-100-0-60-0-10 z-[999]`}
+                >
+                  <ul className="block list-none p-0 m-0">
+                    <li
+                      onClick={() => handleProject('voisins')}
+                      className="py-[15px] border-b border-white text-white hover:cursor-pointer last:border-none"
+                    >
+                      HELLO VOISINS
+                    </li>
+                    <li
+                      onClick={() => handleProject('garage')}
+                      className="py-[15px] border-b border-white text-white hover:cursor-pointer last:border-none"
+                    >
+                      GARAGE V. PARROT
+                    </li>
+                    <li
+                      onClick={() => handleProject('mb')}
+                      className="py-[15px] border-b border-white text-white hover:cursor-pointer last:border-none"
+                    >
+                      MINUTE BEAUTE
+                    </li>
+                    <li
+                      onClick={() => handleProject('sellerie')}
+                      className="py-[15px] border-b border-white text-white hover:cursor-pointer last:border-none"
+                    >
+                      EM SELLERIE
+                    </li>
                   </ul>
                 </nav>
-                <div className={`overlay ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(false)}></div>
+                <div
+                  className={`${menuOpen ? 'fixed opacity-30 pointer-events-auto' : 'fixed opacity-0 pointer-events-none'} top-0 left-0 w-full h-full bg-black/70 z-[998]`}
+                  onClick={() => setMenuOpen(false)}
+                ></div>
               </div>
-              <div className="contact-background"></div>
+              <div className="fixed bg-[#124E68] h-[300px] w-[300px] shadow-[0px_0px_15px_black] rounded-[5px] rotate-[45deg] right-[-220px] top-[-100px] z-[1] lg:right-[-30px] lg:top-[-200px]"></div>
             </li>
           </ul>
         </nav>
       </header>
       <main className="h-full">
-        <section className="infos-section">
-          <section className="profile-description">
+        <section className="px-10 py-10">
+          <section>
             <p className='text-sm'>
               Je suis actuellement à la recherche d&apos;une <span className="bold">alternance</span> en développement informatique pour poursuivre mes études en tant que concepteur développeur d&apos;applications <span className="bold">(Bac+3)</span>.<br />
             </p>
-            <div className="mail-phone-section">
+            <div className="mt-5">
               <div className="icon-section">
                 <Image className="description-ico" src="/images/svg/mail.png" alt="" width={30} height={30} />
                 <span>nicolas.guigay.ng@gmail.com</span>
@@ -127,10 +155,10 @@ function App() {
               </div>
             </div>
           </section>
-          <section className="projects">
-            <h2>MES PROJETS :</h2>
-            <ul className="projects-list">
-              <li onClick={() => handleProject('voisins')}><Image src="/images/logo-voisins.webp" alt="Logo de Hello voisins" width={40} height={40} /><span>HELLO VOISINS</span></li>
+          <section className="mt-10">
+            <h2 className="text-xl mb-5">MES PROJETS :</h2>
+            <ul className="space-y-3">
+              <li onClick={() => handleProject('voisins')} className="flex items-center gap-2.5"><Image src="/images/logo-voisins.webp" alt="Logo de Hello voisins" width={40} height={40} /><span>HELLO VOISINS</span></li>
               <div className="projects-interline"></div>
               <li onClick={() => handleProject('garage')}><Image src="/images/logo-garage.webp" alt="Logo de Garage V. Parrot" width={40} height={40} /><span>GARAGE V. PARROT</span></li>
               <div className="projects-interline"></div>
@@ -141,20 +169,20 @@ function App() {
             </ul>
           </section>
         </section>
-        <section className="project md:mt-20">
-          <div className="project-img-container">
+        <section className="absolute top-0 right-[25vw] flex flex-col items-center w-[55%] h-screen mt-3 z-0 md:mt-5">
+          <div className="relative max-w-[446px] h-[35%] overflow-hidden">
             <Image
               src={projects[currentProject].img}
               alt=""
               width={800}
               height={800}
-              className="project-img"
+              className="w-full h-full object-cover border border-gray-200"
               style={{ objectFit: 'contain' }}
             />
           </div>
-          <h3 className={`project-name ${showContent ? 'active' : ''}`}>{projects[currentProject].name}</h3>
-          <p className={`project-description text-md ${showContent ? 'active' : ''}`} dangerouslySetInnerHTML={{ __html: projects[currentProject].desc }}></p>
-          <a href={projects[currentProject].link} className={`see-project-btn ${showContent ? 'active' : ''}`} target="_blank" rel="noopener noreferrer">Voir le projet</a>
+          <h3 className={`text-3xl mt-3.75 backdrop-blur-sm ${showContent ? 'active' : ''}`}>{projects[currentProject].name}</h3>
+          <p className={`text-justify backdrop-blur-sm ${showContent ? 'active' : ''}`} dangerouslySetInnerHTML={{ __html: projects[currentProject].desc }}></p>
+          <a href={projects[currentProject].link} className={`inline-block px-7.5 py-3.75 text-lg font-bold text-white bg-primary-500 rounded-full text-center text-decoration-none cursor-pointer shadow-md transition-all ${showContent ? 'active' : ''}`} target="_blank" rel="noopener noreferrer">Voir le projet</a>
         </section>
         <div className="container">
           <div className="triangle triangle1"></div>
