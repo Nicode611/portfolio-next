@@ -5,8 +5,8 @@ import '../lib/fontawesome'
 import ReduxProviderWrapper from '../redux/ReduxProviderWrapper';
 
 export const metadata = {
-  title: 'Nicolas Guigay - UI/UX Designer & Developer',
-  description: 'Portfolio de Nicolas Guigay, designer UI/UX et développeur basé aux Pays-Bas',
+  title: 'Nicolas Guigay - Fullstack Developer',
+  description: 'Portfolio de Nicolas Guigay, fullstack developper',
 };
 
 export default function RootLayout({ children }) {

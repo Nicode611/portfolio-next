@@ -41,12 +41,12 @@ export default function ProjectCard({ project }) {
 					className="object-cover w-full h-full"
 				/>
 	    </div>
-      <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-4">
-        <h3 className="text-lg font-semibold text-gray-800">{cardTitle}</h3>
-        <p className="text-xs md:text-sm text-gray-600">{cardCatchline}</p>
+      <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 px-4 pb-[16px] pt-[12px]">
+        <h3 className="text-md font-semibold text-gray-800">{cardTitle}</h3>
+        <p className="text-xs md:text-xs text-gray-600">{cardCatchline}</p>
         <div className="flex space-x-2 mt-2">
           {project.technos.map((techno, index) => (
-            <div key={index} className='flex items-center bg-primaryLight/70 px-1 py-1 space-x-1 rounded'>
+            <div key={index} className='flex items-center bg-primaryLight/70 px-1 pt-[2px] pb-[1px] space-x-1 rounded'>
               <Image
                 src={techno.icon}
                 alt={techno.name}

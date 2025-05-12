@@ -55,9 +55,9 @@ export default function ContactSection() {
   };
   
   return (
-    <section id="contact" className="section px-10 bg-primary text-light mt-10">
+    <section id="contact" className="section px-10 bg-primary text-light ">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold mb-16">Contact</h2>
+        <h2 className="text-4xl font-bold mb-16 pt-10">Contact</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
