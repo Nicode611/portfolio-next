@@ -2,12 +2,22 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
 
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleClick = (section) => {
+      const selectedSection = document.getElementById(section);
+      if (selectedSection) {
+        selectedSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
 
   return (
     <header className="bg-primary py-4 px-6 shadow-md text-light">
@@ -19,40 +29,49 @@ export default function Header() {
               <AvatarFallback>NG</AvatarFallback>
             </Avatar>
             <p className="ml-3 text-xs text-light max-w-[150px]">
-              Little description fqheozbjqbjzbgieuzbjeiuzb gezhjsbjgkjhfjhgf g
+              <span>Nicolas GUIGAY</span><br/>
+              Web developper
             </p>
           </Link>
+          <div className='flex items-center ml-5 space-x-3'>
+            <Link href="https://github.com/Nicode611">
+              <FontAwesomeIcon size='2xl' icon={faGithub} style={{ color: '#ffffff' }} />
+            </Link>
+            <Link href="https://www.linkedin.com/in/nicolas-guigay-4b9900221">
+              <FontAwesomeIcon size="2xl" icon={faLinkedin} style={{ color: '#ffffff' }} />
+            </Link>
+          </div>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
-          <Link
-            href="#about"
-            className="relative group"
+          <span
+            className="hover:cursor-pointer relative group"
+            onClick={() => handleClick('about')}
           >
             <>
               About
               <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-light transition-all duration-300 ease-in-out group-hover:w-full" />
             </>
-          </Link>
-          <Link
-            href="#projects"
-            className="relative group"
+          </span>
+          <span
+            className="hover:cursor-pointer relative group"
+            onClick={() => handleClick('projects')}
           >
             <>
               Projects
               <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-light transition-all duration-300 ease-in-out group-hover:w-full" />
             </>
-          </Link>
-          <Link
-            href="#contact"
-            className="relative group"
+          </span>
+          <span
+            className="hover:cursor-pointer relative group"
+            onClick={() => handleClick('contact')}
           >
             <>
               Contact
               <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-light transition-all duration-300 ease-in-out group-hover:w-full" />
             </>
-          </Link>
+          </span>
         </nav>
 
         {/* Mobile menu button */}

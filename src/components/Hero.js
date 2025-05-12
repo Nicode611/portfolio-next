@@ -34,7 +34,7 @@ export default function Hero() {
       <div className="container mx-auto text-center h-full z-10">
         <div className="flex flex-col items-center justify-center h-[30%]">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Nicolas Guigay
+              Nicolas GUIGAY
             </h1>
             <h2>
                 Web developer, designer, and creator of digital experiences
@@ -46,10 +46,10 @@ export default function Hero() {
             <h2 className="text-2xl text-center md:text-left m-0 md:text-3xl font-bold mb-6 col-span-3">
                 My Projects
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-[70%] w-full justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 h-[70%] w-full justify-items-center">
 
                 {projectsList.map((project) => (
-                        <ProjectCard key={project.id} project={project} onClick={() => handleClick(project)} />
+                  <ProjectCard key={project.id} project={project} onClick={() => handleClick(project)} />
                 ))}
 
             </div>

@@ -6,7 +6,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="section bg-white">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold mb-16">About</h2>
+        <h2 className="text-4xl font-bold mb-16">About me</h2>
         
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12">

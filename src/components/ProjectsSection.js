@@ -1,50 +1,172 @@
 'use client';
+import { useState, useEffect } from 'react';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import ProjectCard from './ProjectCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedProject } from '@/redux/selectedProjectSlice';
-
+import { setSelectedFeature } from '@/redux/selectedFeatureSlice'
+import FeatureModal from './FeatureModal';
 import projectsList from '@/infos/projectsList';
 
 export default function ProjectsSection() {
+
+    // Redux state
     const dispatch = useDispatch();
     const selectedProject = useSelector(
-        (state) => state.selectedProject
-      );
+      (state) => state.selectedProject
+    );
+    const selectedFeature = useSelector(
+      (state) => state.selectedFeature
+    );
+
+
+
+    // React State
+    const [modal, setModal] = useState(false)
+
+const handleClickFeature = (feature) => {
+  dispatch(setSelectedFeature(feature));
+  setModal(true);
+};
+
+    
+
+		
+    const imagesArray = selectedProject?.image;
 
     const handleClick = (project) => {
         dispatch(setSelectedProject(project));
     };
 
   return (
-    <section id="projects" className="relative section min-h-screen md:h-screen flex justify-center py-24 md:py-0 px-14 z-50">
+    
+
+    <section id="projects" className="relative section min-h-screen flex justify-center py-24 md:py-0 px-14 mb-5 bg-background z-50">
       {/* Decorative geometric shapes */}
       <div className="mx-auto w-full h-[70%]">
-        <h2 className="text-4xl font-bold mb-16 mt-5">Projects</h2>
+        <h2 className="text-4xl text-dark font-bold mb-16 mt-5">Projects</h2>
         
         <div className="flex flex-col md:flex-row gap-y-12 md:gap-x-12 w-full h-full justify-around">
 
           {/* Main project showcase */}
-          <div className="flex flex-col items-center bg-gray-100 rounded-lg p-6 w-full h-full">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center h-[30%] w-full">
-                <div className='bg-gray-200 rounded-md aspect-video w-full h-full'></div>
-                <div className='bg-gray-200 rounded-md aspect-video w-full h-full'></div>
-                <div className='bg-gray-200 rounded-md aspect-video w-full h-full'></div>
-            </div>
-            <div className="flex flex-col items-center mt-6">
-              <h3 className="text-2xl font-semibold mb-2">{selectedProject.title}</h3>
-              <p className="text-gray-600 text-center">
-                A brief description of the featured project goes here.
-              </p>
-            </div>
+          <div className="relative flex flex-col items-center bg-gray-100 shadow-md rounded-lg p-6 md:w-[65%] lg:w-[75%] max-w-[950px] h-full overflow-hidden">
+            {/* Mettre animation d'apparition */}
+            {imagesArray ?
+            	<div className='flex flex-col w-full h-full transition-all duration-300 ease-in-out'>
+            		<div className="grid grid-cols-2 md:flex gap-8 justify-items-center h-[30%] w-full">
+		                <div className='bg-gray-200 rounded-lg aspect-video w-full h-full relative'>
+		                    <Link href={imagesArray[0]?.src}>
+		                      <Image
+  		                      src={imagesArray[0]?.src}
+  													alt={imagesArray[0]?.name}
+  													fill
+  													objectFit='cover'
+                            className='rounded-md'
+  		                    />
+		                    </Link>
+		                </div>
+		                <div className='bg-gray-200 rounded-lg aspect-video w-full h-full relative'>
+		                    <Link href={imagesArray[1]?.src}>
+		                      <Image
+  		                      src={imagesArray[1]?.src}
+  													alt={imagesArray[1]?.name}
+  													fill
+  													objectFit='cover'
+                            className='rounded-md'
+  		                    />
+		                    </Link>
+		                </div>
+		                <div className='bg-gray-200 rounded-lg aspect-video w-full h-full relative'>
+		                    <Link href={imagesArray[2]?.src}>
+		                      <Image
+  		                      src={imagesArray[2]?.src}
+  													alt={imagesArray[2]?.name}
+  													fill
+  													objectFit='cover'
+                            className='rounded-md'
+  		                    />
+		                    </Link>
+		                </div>
+		            </div>
+		            <div className="flex flex-col space-y-4 mt-6 border-t-2 border-primary/50 pt-3">
+		              <h3 className="text-2xl text-center font-semibold mb-2">{selectedProject.title}</h3>
+		              <p className="text-gray-600 text-center pb-5">
+		                {selectedProject.description}
+		              </p>
+
+                  <div className="border-t-2 border-primary/50 w-[30%] mb-2" />
+                  <h4 className="text-left text-lg font-bold mt-2">
+                    Highlighted features :
+                  </h4>
+                  <div className='grid grid-cols-2 md:grid-cols-3 gap-5 pb-4'>
+                    {selectedProject.highlightFeatures.map((feature, index) => (
+                      <div key={index} className="relative flex flex-col justify-center items-center hover:cursor-pointer bg-gray-200 h-14 p-1 rounded-md transform transition-transform duration-300 ease-in-out hover:scale-105" onClick={()=>{handleClickFeature(feature)}}>
+                        <span className="text-[0.8rem] md:text-sm whitespace-nowrap">{feature.title}</span>
+                      </div>
+                    ))}
+                  </div>
+                  {modal && (
+                    <FeatureModal
+                      feature={selectedFeature}
+                      onClose={() => setModal(false)}
+                    />
+                  )}
+
+                  <div className="border-t-2 border-primary/50 w-[30%] mb-2" />
+                  <div className="flex flex-wrap justify-between gap-4">
+                    <div className='' >
+                      <h4 className='text-left text-lg font-bold'>
+                        Stack Technique :
+                      </h4>
+                      <div className='flex items-center space-x-2 mt-4'>
+                        {selectedProject.technos.map((techno, index) => (
+                        <div key={index} className='flex items-center space-x-2 bg-slate-100/70 px-1 py-0.5 text-[0.7rem] rounded'>
+                          <Image
+                            src={techno.icon}
+                            alt={techno.name}
+                            width={16}
+                            height={16}
+                            className="w-4 h-4"
+                            style={{ fill: '#569CD6' }}
+                          />
+                          <span className='text-sm'>{techno.name}</span>
+                        </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className='flex items-end space-x-2 ml-3'>
+                      <button className='text-sm px-3 py-1 whitespace-nowrap border-[2px] border-primary rounded-sm hover:bg-primary hover:text-light  transition-all duration-300 ease-in-out'>Lien du projet</button>
+                      <button className='text-sm px-3 py-1 whitespace-nowrap border-[2px] border-primary rounded-sm hover:bg-primary hover:text-light  transition-all duration-300 ease-in-out'>Dossier telechargeable</button>
+                    </div>
+                  </div>
+
+                  
+		            </div>
+            	</div>
+            : ""}
           </div>
           
           {/* Sidebar projects */}
-          <div className="space-y-6">
+          <div className="space-y-6 md:w-[35%] lg:w-[25%] ">
             {projectsList.map((project, index) => (
-              <div key={index} onClick={()=>{handleClick(project)}} className="bg-gray-200 h-24 rounded-md">
-                <span className="">{project.title}</span>
+              <div
+                key={index}
+                onClick={() => { handleClick(project) }}
+                className="relative group hover:cursor-pointer shadow-md bg-gray-200 h-24 rounded-md transform transition-transform duration-300 ease-in-out hover:scale-105"
+              >
+                <Image
+                  src={project.image[0]?.src}
+                  alt={project.image[0]?.name}
+                  fill
+                  objectFit='cover'
+                  className='rounded-sm'
+                />
+                {/* mettre animation de transform smooth et link le hover au container */}
+                <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-2 rounded-b-md transition-colors duration-300 ease-in-out group-hover:bg-[#508aa1df] group-hover:text-light">
+                  <span className="z-20 ">{project.title}</span>
+                </div>
               </div>
             ))}
           </div>

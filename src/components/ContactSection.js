@@ -55,14 +55,14 @@ export default function ContactSection() {
   };
   
   return (
-    <section id="contact" className="section bg-white">
+    <section id="contact" className="section px-10 bg-primary text-light mt-10">
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold mb-16">Contact</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold mb-4">Get in Touch</h3>
-            <p className="text-gray-600 mb-8">
+            <p className=" mb-8">
               Interested in working together? Fill out the form below with some info about your project and I&apos;ll get back to you as soon as I can.
             </p>
             
@@ -75,7 +75,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold">Email</h4>
-                  <p className="text-gray-600">contact@nicolasguigay.com</p>
+                  <p className="">contact@nicolasguigay.com</p>
                 </div>
               </div>
               
@@ -88,16 +88,16 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold">Location</h4>
-                  <p className="text-gray-600">Netherlands</p>
+                  <p className="">Netherlands</p>
                 </div>
               </div>
             </div>
           </div>
           
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 pb-10">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium mb-1">
                   Name
                 </label>
                 <input
@@ -112,7 +112,7 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium mb-1">
                   Email
                 </label>
                 <input
@@ -127,7 +127,7 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium mb-1">
                   Message
                 </label>
                 <textarea
@@ -144,7 +144,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn btn-primary w-full"
+                className="bg-white text-dark rounded-sm w-full"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
