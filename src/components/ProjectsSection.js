@@ -69,7 +69,7 @@ export default function ProjectsSection() {
   return (
     
 
-    <section id="projects" className="relative section min-h-screen flex justify-center py-24 md:py-0 px-14 inner-shadow">
+    <section id="projects" className="overflow-hidden relative section min-h-screen flex justify-center py-24 md:py-0 px-14 inner-shadow">
       <IoTriangleSharp
         size={1200}
         className="blur absolute -top-[645px] -left-[116px] text-[#0000005d] text-6xl z-0 rotate-90"
@@ -117,9 +117,9 @@ export default function ProjectsSection() {
                         </Link>
                         <div className='linear-gradient absolute left-0 right-0 bottom-0 h-[50px] bg-gradient-to-t from-[#F3F4F6] to-transparent'></div>
                     </div>
-  		            <div className="flex flex-col space-y-4 mt-6 pt-3 p-6">
+  		            <div className="flex flex-col w-full space-y-4 mt-6 pt-3 p-6">
   		              <h3 className="text-[3rem] text-left font-semibold mb-2 ml-5 text-primaryDark">{selectedProject.title}</h3>
-  		              <p className="text-gray-500 text-center pb-5">
+  		              <p className="text-gray-500 text-left md:text-center text-sm md:text-md pb-5">
   		                {selectedProject.description}
   		              </p>
 
@@ -128,9 +128,9 @@ export default function ProjectsSection() {
                     <h4 className="text-left text-lg font-bold mt-2">
                       {lang === 'fr' ? "Fonctionnalités principales :" : "Highlighted features :"}
                     </h4>
-                    <div className='grid grid-cols-2 md:grid-cols-3 gap-5 pb-4'>
+                    <div className='grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-5 pb-4'>
                       {selectedProject.highlightFeatures.map((feature, index) => (
-                        <div key={index} className="relative h-14 overflow-hidden group hover:cursor-pointer rounded-md"  onClick={() => { handleClickFeature(feature) }}>
+                        <div key={index} className="relative h-8 md:h-14 overflow-hidden group hover:cursor-pointer rounded-md"  onClick={() => { handleClickFeature(feature) }}>
                           <div className="absolute inset-0 flex items-center bg-gray-300 shadow-inner justify-center rounded-md z-0">
                             <span>{feature.catchLine}</span>
                           </div>
@@ -148,6 +148,7 @@ export default function ProjectsSection() {
                         onClose={() => setModal(false)}
                       />
                     )}
+
                     {/* Stack */}
                     <div className="border-t-2 border-primary/50 w-[30%] mb-2" />
                     <div className="flex flex-wrap justify-between gap-4">
@@ -155,7 +156,7 @@ export default function ProjectsSection() {
                         <h4 className='text-left text-lg font-bold'>
                           {lang === 'fr' ? "Stack Technique :" : "Technical Stack :"}
                         </h4>
-                        <div className='flex items-center space-x-2 mt-4'>
+                        <div className='flex flex-wrap items-center space-x-2 mt-4'>
                           {selectedProject.technos.map((techno, index) => (
                           <div key={index} className='flex items-center space-x-2 bg-slate-100/70 px-1 py-0.5 text-[0.7rem] rounded'>
                             <Image
@@ -205,7 +206,7 @@ export default function ProjectsSection() {
               : ""}
             
             {/* Sidebar projects */}
-            <div className="flex flex-col justify-center space-y-6 md:w-[35%] lg:w-[25%]  p-4 rounded-sm ">
+            <div className="grid grid-cols-2 gap-6 md:flex md:flex-col md:justify-center md:space-y-6 md:w-[35%] lg:w-[25%]  p-4 rounded-sm ">
               {lang === 'fr' ? (
                 projectsListFr.map((project, index) => {
                   const activeProject = selectedProject === project;
@@ -228,7 +229,7 @@ export default function ProjectsSection() {
                     >
                       <span className="z-20 ">{project.title}</span>
                     </div>
-                    <div className="absolute right-[50%] -bottom-[13px] translate-x-[50%] h-[2px] w-[10%] border-b-[1px] border-black/50" />
+                    <div className="hidden md:block absolute right-[50%] -bottom-[13px] translate-x-[50%] h-[2px] w-[10%] border-b-[1px] border-black/50" />
                   </div>
                   );
                 })

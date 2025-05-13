@@ -45,7 +45,7 @@ export default function Hero() {
       
 
   return (
-    <section id='about' className="relative min-h-screen md:h-screen flex justify-center bg-white py-24 md:pb-24 md:pt-0 md:px-14 z-10 border-b-[1px] border-b-black/10">
+    <section id='about' className="overflow-hidden relative min-h-screen md:h-screen flex justify-center bg-white py-24 md:pb-24 md:pt-0 md:px-14 z-10 border-b-[1px] border-b-black/10">
       <div className="container mx-auto flex flex-col justify-between h-full z-20">
         <div className="flex items-center justify-around h-[70%]">
             <div

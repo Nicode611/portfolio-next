@@ -83,7 +83,7 @@ export default function Home() {
         </div>
       )}
       <div
-        className={`transition-transform duration-1000 ease-out origin-center ${
+        className={`overflow-hidden transition-transform duration-1000 ease-out origin-center ${
           split ? 'translate-y-0 opacity-100' : 'translate-y-[10%] opacity-0'
         }`}
       >

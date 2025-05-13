@@ -24,7 +24,7 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-primary py-4 px-6 shadow-md text-light">
+    <header className="overflow-hidden bg-primary py-4 px-6 shadow-md text-light">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">

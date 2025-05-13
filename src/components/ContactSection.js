@@ -23,7 +23,7 @@ export default function ContactSection() {
   };
   
   return (
-    <section id="contact" className="section px-10 bg-primary text-light ">
+    <section id="contact" className="overflow-hidden section px-10 bg-primary text-light ">
       <div className="container mx-auto">
         
         <div className="flex flex-col items-center md:items-start w-full md:flex-row gap-12">
