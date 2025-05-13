@@ -213,7 +213,7 @@ export default function ProjectsSection() {
                   return (
                   <div
                     key={index}
-                    onClick={() => { handleClick(project) }}
+                    onClick={() => { handleClick(project); document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); }}
                     className={`relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 ${activeProject ? 'scale-105' : ''} `}
                   >
                     <Image
@@ -239,7 +239,7 @@ export default function ProjectsSection() {
                   return (
                   <div
                     key={index}
-                    onClick={() => { handleClick(project) }}
+                    onClick={() => { handleClick(project); document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); }}
                     className={`relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 ${activeProject ? 'scale-105' : ''} `}
                   >
                     <Image
