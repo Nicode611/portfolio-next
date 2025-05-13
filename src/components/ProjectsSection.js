@@ -69,7 +69,7 @@ export default function ProjectsSection() {
   return (
     
 
-    <section id="projects" className="overflow-hidden relative section min-h-screen flex justify-center py-24 md:py-0 px-14 inner-shadow">
+    <section id="projects" className="overflow-hidden relative section min-h-screen flex justify-center py-24 md:py-0 px-6 md:px-14 inner-shadow">
       <IoTriangleSharp
         size={1200}
         className="blur absolute -top-[645px] -left-[116px] text-[#0000005d] text-6xl z-0 rotate-90"
@@ -100,7 +100,7 @@ export default function ProjectsSection() {
                 >
                     
                     <div className='bg-gray-200 rounded-lg aspect-video w-full h-[200px] max-h-[200px] relative'>
-                        <Link href={imagesArray[0]?.src}>
+                        <Link href={selectedProject.link} target='_blank'>
                           <Image
                             src={imagesArray[0]?.src}
                             alt={imagesArray[0]?.name}
@@ -183,14 +183,14 @@ export default function ProjectsSection() {
                         
                         {Array.isArray(selectedProject.link) ? (
                           selectedProject.link.map((link, index) => (
-                            <Link href={link.src} key={index}>
+                            <Link href={link.src} key={index} target='_blank'>
                               <button className='text-sm px-3 py-1 text-light whitespace-nowrap border-[2px] border-primary bg-primary rounded-sm hover:bg-primaryLight hover:border-primaryLight transition-all duration-300 ease-in-out'>
                                 {link.name}
                               </button>
                             </Link>
                           ))
                         ) : selectedProject.link ? (
-                          <Link href={selectedProject.link}>
+                          <Link href={selectedProject.link} target='_blank'>
                             <button className='text-sm px-3 py-1 text-light whitespace-nowrap border-[2px] border-primary bg-primary rounded-sm hover:bg-primaryLight hover:border-primaryLight transition-all duration-300 ease-in-out'>
                               <FontAwesomeIcon size='lg' icon={faGithub} style={{ color: '#ffffff', paddingRight: '5px' }} />
                               {lang === 'fr' ? "Lien du projet" : "Project link"}
@@ -206,7 +206,7 @@ export default function ProjectsSection() {
               : ""}
             
             {/* Sidebar projects */}
-            <div className="grid grid-cols-2 gap-6 md:flex md:flex-col md:justify-center md:space-y-6 md:w-[35%] lg:w-[25%]  p-4 rounded-sm ">
+            <div className="grid grid-cols-2 gap-5 md:flex md:flex-col md:justify-center md:space-y-6 md:w-[35%] lg:w-[25%] p-0 md:p-4 rounded-sm ">
               {lang === 'fr' ? (
                 projectsListFr.map((project, index) => {
                   const activeProject = selectedProject === project;

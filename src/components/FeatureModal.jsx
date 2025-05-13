@@ -31,15 +31,17 @@ export default function FeatureModal({feature, onClose}) {
         aria-describedby="modal-description"
       
       className=" bg-white/80 p-6 max-w-[50%] relative rounded">
-        <button
-          onClick={onClose}
-          className="absolute top-2 right-5 text-[2.6rem] font-bold"
-        >
-          ×
-        </button>
-        <h3 className="text-2xl font-semibold mb-4">
-          {feature.title}
-        </h3>
+        <div className='flex items-center justify-between mb-4'>
+          <h3 className="text-2xl font-semibold mb-4">
+            {feature.title}
+          </h3>
+          <button
+            onClick={onClose}
+            className="text-[2.6rem] font-bold"
+          >
+            ×
+          </button>
+        </div>
         <p className="text-gray-600">
           {feature.description}
         </p>
