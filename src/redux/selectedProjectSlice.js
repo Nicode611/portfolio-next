@@ -52,7 +52,7 @@ const selectedProjectSlice = createSlice({
       { name: "Tailwind", icon: "/images/logos/tailwind.svg" },
       { name: "ShadCN", icon: "/images/logos/shadcn.svg" },
     ],
-    link: "https://example.com/project1",
+    link: "https://github.com/Nicode611/PlantCare-WebApp",
   },
   reducers: {
     setSelectedProject: (state, action) => {
