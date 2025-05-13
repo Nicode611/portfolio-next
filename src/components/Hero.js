@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import ProjectCard from './ProjectCard';
 import projectsList from '@/infos/projectsList';
 
@@ -39,23 +38,6 @@ export default function Hero() {
       }, 3500);
       return () => clearTimeout(timer35s, timer4s);
     }, []);
-
-    /* useEffect(() => {
-        for (let i = 0; i < 10; i++) {
-          const bubble = document.createElement('div');
-          bubble.classList.add('bubble');
-                    bubble.style.left = `${Math.random() * 100}vw`;
-          bubble.style.animationDelay = `${Math.random() * 30}s`;
-          bubble.style.animationDuration = `${10 + Math.random() * 10}s`;
-          bubble.style.width = `${10 + Math.random() * 20}px`;
-          bubble.style.height = bubble.style.width;
-          document.body.appendChild(bubble);
-          const initialBubble = bubble.cloneNode(true);
-          initialBubble.style.animationDelay = '0s';
-          document.body.appendChild(initialBubble);
-        }
-      }, []);  */
-
       
 
   return (
@@ -63,9 +45,7 @@ export default function Hero() {
       <div className="container mx-auto flex flex-col justify-between h-full z-20">
         <div className="flex items-center justify-around h-[70%]">
             <div
-              className={`flex flex-col items-end w-3/6 transition-all duration-700 ease-out transform ${
-                showIntro ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-              }`}
+              className={`flex flex-col items-end w-3/6 `}
             >
               <h2 className='text-right text-lg mb-3 text-primaryLight'>
                   Web developer, designer, and creator of digital experiences
@@ -73,14 +53,21 @@ export default function Hero() {
               <h1 className="text-[5rem] md:text-7xl text-right text-primaryDark font-bold mb-3">
                 Nicolas <br/> GUIGAY
               </h1>
-              <div className='relative bg-gray-100 mt-6'>
-                <FontAwesomeIcon className='absolute -top-10 -left-10' icon={faQuoteLeft} style={{ fontSize: '60px' }} />
-                <FontAwesomeIcon className='absolute -bottom-10 -right-10' icon={faQuoteRight} style={{ fontSize: '60px' }} />
+              <div className={`relative bg-gray-100 mt-6 transition-all duration-700 ease-out transform ${
+                showIntro ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+              }`}>
                 <p className='text-right  text-gray-500 p-3 max-w-[500px]'>
                   Passionné par le développement web, je conçois des projets <strong>modernes et soignés</strong>, avec le souci du détail et de l’expérience utilisateur. Ce portfolio en est un aperçu.<br/>
                   Avec le souci du détail et de l’expérience utilisateur. Ce <strong>portfolio </strong>en est un aperçu.
                 </p>
+                <FontAwesomeIcon className={`absolute -top-10 -left-10 transition-all duration-700 ease-out transform ${
+                showProjects ? 'opacity-100 translate-x-0 rotate-0' : 'opacity-0 -translate-x-10 -rotate-45'
+              }`} icon={faQuoteLeft} style={{ fontSize: '60px' }} />
+                <FontAwesomeIcon className={`absolute -bottom-10 -right-10 transition-all duration-700 ease-out transform ${
+                showProjects ? 'opacity-100 translate-x-0 rotate-0' : 'opacity-0 translate-x-10 rotate-45'
+              }`} icon={faQuoteRight} style={{ fontSize: '60px' }} />
               </div>
+                
             </div>
             <div
               className={`hidden md:flex justify-center w-3/6 transition-all duration-700 ease-out transform ${

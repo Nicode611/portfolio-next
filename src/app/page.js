@@ -4,6 +4,8 @@ import Hero from '../components/Hero';
 import AboutSection from '../components/AboutSection';
 import ProjectsSection from '../components/ProjectsSection';
 import ContactSection from '../components/ContactSection';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
 
 export default function Home() {
 
@@ -62,18 +64,22 @@ export default function Home() {
               Veuillez selectionner votre langue :
             </p>
             <div className="flex space-x-4 mt-4">
-              <button
-                className="bg-white text-[#064E6A] text-[1.2rem] px-4 py-2 rounded"
+                <Image
+                src={"/images/fr-flag.png"}
+                alt='french flag'
+                width={130}
+                height={130}
                 onClick={() => setLanguageChosen(true)}
-              >
-                Français
-              </button>
-              <button
-                className="bg-white text-[#064E6A] text-[1.2rem] px-4 py-2 rounded"
+                className='px-4 py-2 rounded hover:cursor-pointer hover:scale-105 transition-all ease-in-out duration-200'
+                />
+              <Image
+                src={"/images/en-flg.webp"}
+                alt='french flag'
+                width={130}
+                height={130}
                 onClick={() => setLanguageChosen(true)}
-              >
-                English
-              </button>
+                className='px-4 py-2 rounded hover:cursor-pointer hover:scale-105 transition-all ease-in-out duration-200'
+                />
             </div>
           </div>
         </div>

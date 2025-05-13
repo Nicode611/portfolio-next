@@ -121,15 +121,23 @@ export default function ProjectsSection() {
   		              <p className="text-gray-500 text-center pb-5">
   		                {selectedProject.description}
   		              </p>
-  
+
+                    {/* Features */}
                     <div className="border-t-2 border-primary/50 w-[30%] mb-2" />
                     <h4 className="text-left text-lg font-bold mt-2">
                       Highlighted features :
                     </h4>
                     <div className='grid grid-cols-2 md:grid-cols-3 gap-5 pb-4'>
                       {selectedProject.highlightFeatures.map((feature, index) => (
-                        <div key={index} className="relative flex flex-col justify-center items-center hover:cursor-pointer bg-gray-200 h-14 p-1 rounded-md transform transition-transform duration-300 ease-in-out hover:scale-105" onClick={()=>{handleClickFeature(feature)}}>
-                          <span className="text-[0.8rem] md:text-sm whitespace-nowrap">{feature.title}</span>
+                        <div key={index} className="relative h-14 overflow-hidden group hover:cursor-pointer rounded-md"  onClick={() => { handleClickFeature(feature) }}>
+                          <div className="absolute inset-0 flex items-center bg-gray-300 shadow-inner justify-center rounded-md z-0">
+                            <span>{feature.catchLine}</span>
+                          </div>
+                          <div
+                            className="absolute inset-0 flex flex-col justify-center items-center bg-primaryLight text-light p-1 rounded-md z-20 transition-transform duration-500 ease-in-out group-hover:-translate-x-[260px]"
+                          >
+                            <span className="text-[0.8rem] md:text-sm whitespace-nowrap">{feature.title}</span>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -139,7 +147,7 @@ export default function ProjectsSection() {
                         onClose={() => setModal(false)}
                       />
                     )}
-  
+                    {/* Stack */}
                     <div className="border-t-2 border-primary/50 w-[30%] mb-2" />
                     <div className="flex flex-wrap justify-between gap-4">
                       <div className='' >
@@ -176,11 +184,13 @@ export default function ProjectsSection() {
             
             {/* Sidebar projects */}
             <div className="flex flex-col justify-center space-y-6 md:w-[35%] lg:w-[25%]  p-4 rounded-sm ">
-              {projectsList.map((project, index) => (
+              {projectsList.map((project, index) => {
+                const activeProject = selectedProject === project;
+                return (
                 <div
                   key={index}
                   onClick={() => { handleClick(project) }}
-                  className="relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 "
+                  className={`relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 ${activeProject ? 'scale-105' : ''} `}
                 >
                   <Image
                     src={project.image[0]?.src}
@@ -190,12 +200,15 @@ export default function ProjectsSection() {
                     objectPosition='top center'
                     className='rounded-md'
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-2 rounded-b-md transition-colors duration-300 ease-in-out group-hover:bg-[#508aa1df] group-hover:text-light">
+                  <div
+                    className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-md transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
+                  >
                     <span className="z-20 ">{project.title}</span>
                   </div>
                   <div className="absolute right-[50%] -bottom-[13px] translate-x-[50%] h-[2px] w-[10%] border-b-[1px] border-black/50" />
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

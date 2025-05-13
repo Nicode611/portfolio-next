@@ -5,6 +5,7 @@ const selectedFeatureSlice = createSlice({
   name: 'selectedFeature',
   initialState: {
     title: "Mise en cache",
+    catchLine: "Description of Highlight Feature 1",
     description: "Description of Highlight Feature 1",
   },
   reducers: {
@@ -13,6 +14,7 @@ const selectedFeatureSlice = createSlice({
     },
     clearSelectedFeature: () => ({
       title: "",
+      catchLine: "",
       description: "",
     }),
   },
