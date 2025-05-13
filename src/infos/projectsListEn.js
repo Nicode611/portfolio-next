@@ -5,7 +5,7 @@ const projectsListEn = [
     catchline: "Social network application that facilitates communication between neighbors",
     description: "The Hello Voisins project was my final study project. The goal: create a data management application. Although not fully completed, this project allowed me to discover different technologies and brought me a new way of working, especially regarding project management.",
     image: [
-        {name: "mb2", src: "/images/projets/hello-voisins/hellovoisins.png"},
+        {name: "mb2", src: "/images/projets/hello-voisins/hello.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
         {name: "sellerie1", src: "/images/projets/wordpress/sellerie1.png"},
     ],
@@ -28,7 +28,8 @@ const projectsListEn = [
       { name: "PHP", icon: "/images/logos/php.svg" },
       { name: "SQL", icon: "/images/logos/sql.svg" },
     ],
-    link: "https://example.com/project1",
+    link: "https://github.com/Nicode611/Hello-voisins-WebApp",
+    
   },
   {
     id: 2,
@@ -79,7 +80,7 @@ const projectsListEn = [
       { name: "Tailwind", icon: "/images/logos/tailwind.svg" },
       { name: "ShadCN", icon: "/images/logos/shadcn.svg" },
     ],
-    link: "https://example.com/project1",
+    link: "https://github.com/Nicode611/PlantCare-WebApp",
   },
   {
     id: 3,
@@ -107,7 +108,7 @@ const projectsListEn = [
       { name: "Redux", icon: "/images/logos/redux.svg" },
       
     ],
-    link: "https://example.com/project1",
+    link: "https://github.com/Nicode611/to-do-list-react",
   },
   {
     id: 4,
@@ -115,7 +116,7 @@ const projectsListEn = [
     catchline: "Various websites created via WordPress for professionals.",
     description: "I had the opportunity to work as a freelancer and have certain clients including Minute Beauté and EM Sellerie. Although creating WordPress sites via Elementor doesn't require incredible skills, working professionally allowed me to improve on the design and project management aspects.",
     image: [
-        {name: "mb2", src: "/images/projets/wordpress/mb2.png"},
+        {name: "mb2", src: "/images/projets/wordpress/mb.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
         {name: "sellerie1", src: "/images/projets/wordpress/sellerie1.png"},
     ],
@@ -157,7 +158,10 @@ const projectsListEn = [
       { name: "Figma", icon: "/images/logos/figma.svg" },
       
     ],
-    link: "https://example.com/project1",
+    link: [
+      {name: "Minute Beauté", src: "https://minutebeaute.fr/"},
+      {name: "EM Sellerie", src: "https://em-sellerie.fr"},
+    ]
   },
   {
     id: 5,
@@ -198,7 +202,7 @@ const projectsListEn = [
       { name: "Shopify", icon: "/images/logos/shopify.svg" },
       
     ],
-    link: "https://example.com/project1",
+    link: "",
   }
   
 ]

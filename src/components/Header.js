@@ -29,7 +29,7 @@ export default function Header() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Avatar className="size-14 border-2 border-white">
-              <AvatarImage src="/images/profile-picture.webp" alt="Nicolas Guigay" width={40} height={40} />
+              <AvatarImage src="/images/profile-picture.webp" alt="Nicolas Guigay" className="object-cover" />
               <AvatarFallback>NG</AvatarFallback>
             </Avatar>
             <p className="ml-3 text-xs text-light max-w-[150px]">
@@ -77,13 +77,13 @@ export default function Header() {
             </>
           </span>
          <div className='flex space-x-3'>
-            <Avatar className="size-8 border-2 border-white hover:cursor-pointer" onClick={() => {
+            <Avatar className="size-8 border-[1px] border-primaryDark hover:cursor-pointer" onClick={() => {
               dispatch(setLanguage('fr'));
             }}> 
               <AvatarImage src="/images/fr-flag.png" alt="French" width={20} height={20} />
               <AvatarFallback>Fr</AvatarFallback>
             </Avatar>
-            <Avatar className="size-8 border-2 border-white hover:cursor-pointer" onClick={() => {
+            <Avatar className="size-8 border-[1px] border-primaryDark hover:cursor-pointer" onClick={() => {
               dispatch(setLanguage('en'));
             }}>
               <AvatarImage src="/images/en-flg.webp" alt="English" width={20} height={20} />

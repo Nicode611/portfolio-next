@@ -5,14 +5,15 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedProject } from '@/redux/selectedProjectSlice';
-import { setSelectedFeature } from '@/redux/selectedFeatureSlice'
-import { setLanguage } from '@/redux/selectedLanguageSlice';
+import { setSelectedFeature } from '@/redux/selectedFeatureSlice';
 import FeatureModal from './FeatureModal';
 import projectsListFr from '@/infos/projectsListFr';
 import projectsListEn from '@/infos/projectsListEn';
 import { IoTriangleSharp } from "react-icons/io5";
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function ProjectsSection() {
 
@@ -171,12 +172,30 @@ export default function ProjectsSection() {
                         </div>
                       </div>
                       <div className='flex items-end space-x-2 ml-3'>
-                        <button className='text-sm px-3 py-1 whitespace-nowrap border-[2px] border-primary rounded-sm hover:bg-primary hover:text-light transition-all duration-300 ease-in-out'>
-                          {lang === 'fr' ? "Lien du projet" : "Project link"}
-                        </button>
-                        <button className='text-sm px-3 py-1 whitespace-nowrap border-[2px] border-primary rounded-sm hover:bg-primary hover:text-light transition-all duration-300 ease-in-out'>
-                          {lang === 'fr' ? "Dossier téléchargeable" : "Downloadable file"}
-                        </button>
+                        {selectedProject.file ? (
+                          <a href={selectedProject.file} download>
+                            <button className='text-sm px-3 py-1 whitespace-nowrap border-[2px] border-primary rounded-sm hover:bg-primary hover:text-light transition-all duration-300 ease-in-out'>
+                              {lang === 'fr' ? "Télécharger le dossier projet" : "Download project file"}
+                            </button>
+                          </a>
+                        ) : null}
+                        
+                        {Array.isArray(selectedProject.link) ? (
+                          selectedProject.link.map((link, index) => (
+                            <Link href={link.src} key={index}>
+                              <button className='text-sm px-3 py-1 text-light whitespace-nowrap border-[2px] border-primary bg-primary rounded-sm hover:bg-primaryLight hover:border-primaryLight transition-all duration-300 ease-in-out'>
+                                {link.name}
+                              </button>
+                            </Link>
+                          ))
+                        ) : selectedProject.link ? (
+                          <Link href={selectedProject.link}>
+                            <button className='text-sm px-3 py-1 text-light whitespace-nowrap border-[2px] border-primary bg-primary rounded-sm hover:bg-primaryLight hover:border-primaryLight transition-all duration-300 ease-in-out'>
+                              <FontAwesomeIcon size='lg' icon={faGithub} style={{ color: '#ffffff', paddingRight: '5px' }} />
+                              {lang === 'fr' ? "Lien du projet" : "Project link"}
+                            </button>
+                          </Link>
+                        ) : null}
                       </div>
                     </div>
   

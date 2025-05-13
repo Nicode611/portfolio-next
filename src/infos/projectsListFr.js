@@ -5,7 +5,7 @@ const projectsList = [
     catchline: "Application de type reseaux sociaux, facilitant la communication entre voisins",
     description: "Le projet Hello Voisins etait mon projet de fin d'etudes. Le but : créer une application de gestion de données. Ce projet bien que non abouti m'a permis de découvrir différentes technologie et m'a apporté une nouvelle facon de travailler, notamment sur la gestion de projet.",
     image: [
-        {name: "mb2", src: "/images/projets/hello-voisins/hellovoisins.png"},
+        {name: "mb2", src: "/images/projets/hello-voisins/hello.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
         {name: "sellerie1", src: "/images/projets/wordpress/sellerie1.png"},
     ],
@@ -28,7 +28,8 @@ const projectsList = [
       { name: "PHP", icon: "/images/logos/php.svg" },
       { name: "SQL", icon: "/images/logos/sql.svg" },
     ],
-    link: "https://example.com/project1",
+    link: "https://github.com/Nicode611/Hello-voisins-WebApp",
+    file: "/dossier-projet-hello-voisins.pdf"
   },
   {
     id: 2,
@@ -79,7 +80,7 @@ const projectsList = [
       { name: "Tailwind", icon: "/images/logos/tailwind.svg" },
       { name: "ShadCN", icon: "/images/logos/shadcn.svg" },
     ],
-    link: "https://example.com/project1",
+    link: "https://github.com/Nicode611/PlantCare-WebApp",
   },
   {
     id: 3,
@@ -107,7 +108,7 @@ const projectsList = [
       { name: "Redux", icon: "/images/logos/redux.svg" },
       
     ],
-    link: "https://example.com/project1",
+    link: "https://github.com/Nicode611/to-do-list-react",
   },
   {
     id: 4,
@@ -115,7 +116,7 @@ const projectsList = [
     catchline: "Divers sites web crées via Wordpress a l'intention de professionels.",
     description: "J'ai eu l'occasion de travailler en tant que freelance et d'avoir certains clients dont Minute Beauté et EM Sellerie. Bien que la création de site Wordpress via Elementor ne requiert pas d'incroyables compétences, le fait de travailler de manière professionnelle m'a permis de m'améliorer sur l'aspect conception et gestion d'un projet. ",
     image: [
-        {name: "mb2", src: "/images/projets/wordpress/mb2.png"},
+        {name: "mb2", src: "/images/projets/wordpress/mb.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
         {name: "sellerie1", src: "/images/projets/wordpress/sellerie1.png"},
     ],
@@ -157,7 +158,10 @@ const projectsList = [
       { name: "Figma", icon: "/images/logos/figma.svg" },
       
     ],
-    link: "https://example.com/project1",
+    link: [
+      {name: "Minute Beauté", src: "https://minutebeaute.fr/"},
+      {name: "EM Sellerie", src: "https://em-sellerie.fr"},
+    ]
   },
   {
     id: 5,
@@ -198,7 +202,7 @@ const projectsList = [
       { name: "Shopify", icon: "/images/logos/shopify.svg" },
       
     ],
-    link: "https://example.com/project1",
+    link: "",
   }
   
 ]

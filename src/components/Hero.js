@@ -79,7 +79,7 @@ export default function Hero() {
                 
             </div>
             <div
-              className={`hidden md:flex justify-center w-3/6 transition-all duration-500 ease-out transform ${
+              className={`hidden relative md:flex justify-center w-3/6 transition-all duration-500 ease-out transform ${
                 showImage ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
               }`}
             >
@@ -88,7 +88,7 @@ export default function Hero() {
                 alt="Nicolas Guigay"
                 width={200}
                 height={200}
-                className="rounded-full shadow-lg object-cover w-[300px]  h-auto"
+                className=" z-10 rounded-full shadow-xl object-cover w-[300px] h-auto"
               />
             </div>
         </div>
