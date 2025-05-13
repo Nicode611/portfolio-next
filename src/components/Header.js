@@ -6,10 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setLanguage } from '../redux/selectedLanguageSlice';
 
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 export default function Header() {
+  const dispatch = useDispatch();
+  const lang = useSelector((state) => state.selectedLanguage.language);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleClick = (section) => {
@@ -17,7 +21,7 @@ export default function Header() {
       if (selectedSection) {
         selectedSection.scrollIntoView({ behavior: 'smooth' });
       }
-    }
+  }
 
   return (
     <header className="bg-primary py-4 px-6 shadow-md text-light">
@@ -50,7 +54,7 @@ export default function Header() {
             onClick={() => handleClick('about')}
           >
             <>
-              About
+              {lang === 'fr' ? 'À propos' : 'About'}
               <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-light transition-all duration-300 ease-in-out group-hover:w-full" />
             </>
           </span>
@@ -59,7 +63,7 @@ export default function Header() {
             onClick={() => handleClick('projects')}
           >
             <>
-              Projects
+              {lang === 'fr' ? 'Projets' : 'Projects'}
               <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-light transition-all duration-300 ease-in-out group-hover:w-full" />
             </>
           </span>
@@ -73,11 +77,15 @@ export default function Header() {
             </>
           </span>
          <div className='flex space-x-3'>
-            <Avatar className="size-8 border-2 border-white hover: cursor-pointer">
+            <Avatar className="size-8 border-2 border-white hover:cursor-pointer" onClick={() => {
+              dispatch(setLanguage('fr'));
+            }}> 
               <AvatarImage src="/images/fr-flag.png" alt="French" width={20} height={20} />
               <AvatarFallback>Fr</AvatarFallback>
             </Avatar>
-            <Avatar className="size-8 border-2 border-white hover: cursor-pointer">
+            <Avatar className="size-8 border-2 border-white hover:cursor-pointer" onClick={() => {
+              dispatch(setLanguage('en'));
+            }}>
               <AvatarImage src="/images/en-flg.webp" alt="English" width={20} height={20} />
               <AvatarFallback>En</AvatarFallback>
             </Avatar>
@@ -104,31 +112,53 @@ export default function Header() {
         <nav className="md:hidden pt-4 pb-2 px-4 bg-gray-100">
           <ul className="space-y-2">
             <li>
-              <Link
-                href="/about"
-                className="block text-gray-800 hover:text-primary py-2"
-                onClick={() => setMobileMenuOpen(false)}
+              <span
+                className="block text-gray-800 hover:text-primary py-2 cursor-pointer"
+                onClick={() => {
+                  handleClick('about');
+                  setMobileMenuOpen(false);
+                }}
               >
-                About
-              </Link>
+                {lang == 'fr' ? 'À propos' : 'About'}
+              </span>
             </li>
             <li>
-              <Link
-                href="#projects"
-                className="block text-gray-800 hover:text-primary py-2"
-                onClick={() => setMobileMenuOpen(false)}
+              <span
+                className="block text-gray-800 hover:text-primary py-2 cursor-pointer"
+                onClick={() => {
+                  handleClick('projects');
+                  setMobileMenuOpen(false);
+                }}
               >
-                Projects
-              </Link>
+                {lang === 'fr' ? 'Projets' : 'Projects'}
+              </span>
             </li>
             <li>
-              <Link
-                href="/contact"
-                className="block text-gray-800 hover:text-primary py-2"
-                onClick={() => setMobileMenuOpen(false)}
+              <span
+                className="block text-gray-800 hover:text-primary py-2 cursor-pointer"
+                onClick={() => {
+                  handleClick('contact');
+                  setMobileMenuOpen(false);
+                }}
               >
                 Contact
-              </Link>
+              </span>
+            </li>
+            <li className="flex space-x-3 pt-2">
+              <Avatar className="size-8 border-2 border-gray-300 cursor-pointer" onClick={() => {
+                dispatch(setLanguage('fr'));
+                setMobileMenuOpen(false);
+              }}> 
+                <AvatarImage src="/images/fr-flag.png" alt="French" width={20} height={20} />
+                <AvatarFallback>Fr</AvatarFallback>
+              </Avatar>
+              <Avatar className="size-8 border-2 border-gray-300 cursor-pointer" onClick={() => {
+                dispatch(setLanguage('en'));
+                setMobileMenuOpen(false);
+              }}>
+                <AvatarImage src="/images/en-flg.webp" alt="English" width={20} height={20} />
+                <AvatarFallback>En</AvatarFallback>
+              </Avatar>
             </li>
           </ul>
         </nav>

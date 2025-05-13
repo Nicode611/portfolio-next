@@ -4,12 +4,14 @@ import { motion } from 'framer-motion';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import ProjectCard from './ProjectCard';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedProject } from '@/redux/selectedProjectSlice';
 import { setSelectedFeature } from '@/redux/selectedFeatureSlice'
+import { setLanguage } from '@/redux/selectedLanguageSlice';
 import FeatureModal from './FeatureModal';
-import projectsList from '@/infos/projectsList';
+import projectsListFr from '@/infos/projectsListFr';
+import projectsListEn from '@/infos/projectsListEn';
 import { IoTriangleSharp } from "react-icons/io5";
 
 export default function ProjectsSection() {
@@ -22,6 +24,7 @@ export default function ProjectsSection() {
     const selectedFeature = useSelector(
       (state) => state.selectedFeature
     );
+    const lang = useSelector((state) => state.selectedLanguage.language);
 
     // React State
     const [modal, setModal] = useState(false)
@@ -122,7 +125,7 @@ export default function ProjectsSection() {
                     {/* Features */}
                     <div className="border-t-2 border-primary/50 w-[30%] mb-2" />
                     <h4 className="text-left text-lg font-bold mt-2">
-                      Highlighted features :
+                      {lang === 'fr' ? "Fonctionnalités principales :" : "Highlighted features :"}
                     </h4>
                     <div className='grid grid-cols-2 md:grid-cols-3 gap-5 pb-4'>
                       {selectedProject.highlightFeatures.map((feature, index) => (
@@ -149,7 +152,7 @@ export default function ProjectsSection() {
                     <div className="flex flex-wrap justify-between gap-4">
                       <div className='' >
                         <h4 className='text-left text-lg font-bold'>
-                          Stack Technique :
+                          {lang === 'fr' ? "Stack Technique :" : "Technical Stack :"}
                         </h4>
                         <div className='flex items-center space-x-2 mt-4'>
                           {selectedProject.technos.map((techno, index) => (
@@ -168,8 +171,12 @@ export default function ProjectsSection() {
                         </div>
                       </div>
                       <div className='flex items-end space-x-2 ml-3'>
-                        <button className='text-sm px-3 py-1 whitespace-nowrap border-[2px] border-primary rounded-sm hover:bg-primary hover:text-light  transition-all duration-300 ease-in-out'>Lien du projet</button>
-                        <button className='text-sm px-3 py-1 whitespace-nowrap border-[2px] border-primary rounded-sm hover:bg-primary hover:text-light  transition-all duration-300 ease-in-out'>Dossier telechargeable</button>
+                        <button className='text-sm px-3 py-1 whitespace-nowrap border-[2px] border-primary rounded-sm hover:bg-primary hover:text-light transition-all duration-300 ease-in-out'>
+                          {lang === 'fr' ? "Lien du projet" : "Project link"}
+                        </button>
+                        <button className='text-sm px-3 py-1 whitespace-nowrap border-[2px] border-primary rounded-sm hover:bg-primary hover:text-light transition-all duration-300 ease-in-out'>
+                          {lang === 'fr' ? "Dossier téléchargeable" : "Downloadable file"}
+                        </button>
                       </div>
                     </div>
   
@@ -180,31 +187,59 @@ export default function ProjectsSection() {
             
             {/* Sidebar projects */}
             <div className="flex flex-col justify-center space-y-6 md:w-[35%] lg:w-[25%]  p-4 rounded-sm ">
-              {projectsList.map((project, index) => {
-                const activeProject = selectedProject === project;
-                return (
-                <div
-                  key={index}
-                  onClick={() => { handleClick(project) }}
-                  className={`relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 ${activeProject ? 'scale-105' : ''} `}
-                >
-                  <Image
-                    src={project.image[0]?.src}
-                    alt={project.image[0]?.name}
-                    fill
-                    objectFit='cover'
-                    objectPosition='top center'
-                    className='rounded-md'
-                  />
+              {lang === 'fr' ? (
+                projectsListFr.map((project, index) => {
+                  const activeProject = selectedProject === project;
+                  return (
                   <div
-                    className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-md transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
+                    key={index}
+                    onClick={() => { handleClick(project) }}
+                    className={`relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 ${activeProject ? 'scale-105' : ''} `}
                   >
-                    <span className="z-20 ">{project.title}</span>
+                    <Image
+                      src={project.image[0]?.src}
+                      alt={project.image[0]?.name}
+                      fill
+                      objectFit='cover'
+                      objectPosition='top center'
+                      className='rounded-md'
+                    />
+                    <div
+                      className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-md transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
+                    >
+                      <span className="z-20 ">{project.title}</span>
+                    </div>
+                    <div className="absolute right-[50%] -bottom-[13px] translate-x-[50%] h-[2px] w-[10%] border-b-[1px] border-black/50" />
                   </div>
-                  <div className="absolute right-[50%] -bottom-[13px] translate-x-[50%] h-[2px] w-[10%] border-b-[1px] border-black/50" />
-                </div>
-                );
-              })}
+                  );
+                })
+              ) : (
+                projectsListEn.map((project, index) => {
+                  const activeProject = selectedProject === project;
+                  return (
+                  <div
+                    key={index}
+                    onClick={() => { handleClick(project) }}
+                    className={`relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 ${activeProject ? 'scale-105' : ''} `}
+                  >
+                    <Image
+                      src={project.image[0]?.src}
+                      alt={project.image[0]?.name}
+                      fill
+                      objectFit='cover'
+                      objectPosition='top center'
+                      className='rounded-md'
+                    />
+                    <div
+                      className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-md transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
+                    >
+                      <span className="z-20 ">{project.title}</span>
+                    </div>
+                    <div className="absolute right-[50%] -bottom-[13px] translate-x-[50%] h-[2px] w-[10%] border-b-[1px] border-black/50" />
+                  </div>
+                  );
+                })
+              )}
             </div>
           </div>
         </div>

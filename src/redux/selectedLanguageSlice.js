@@ -5,14 +5,14 @@ import { Languages } from 'lucide-react';
 const selectedLanguageSlice = createSlice({
   name: 'selectedLanguage',
   initialState: {
-    language: "French"
+    language: "fr"
   },
   reducers: {
-    setSelectedLanguage: (state, action) => {
-      return action.payload;
+    setLanguage: (state, action) => {
+      state.language = action.payload;
     },
   },
 });
 
-export const { setSelectedLanguage } = selectedLanguageSlice.actions;
+export const { setLanguage } = selectedLanguageSlice.actions;
 export default selectedLanguageSlice.reducer;

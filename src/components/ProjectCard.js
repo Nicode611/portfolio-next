@@ -28,7 +28,7 @@ export default function ProjectCard({ project }) {
   return (
 		
     <div
-      className="bg-gray-200 h-full w-full max-w-[70%] md:max-w-[350px] aspect-square rounded-md overflow-hidden relative transform transition-transform duration-300 ease-in-out hover:scale-105 hover:cursor-pointer shadow-lg"
+      className="bg-gray-200 h-[200px] md:h-full w-full md:max-w-[350px] aspect-square rounded-md overflow-hidden relative transform transition-transform duration-300 ease-in-out hover:scale-105 hover:cursor-pointer shadow-lg"
       onClick={() => handleClick(project)}
     >
 			
