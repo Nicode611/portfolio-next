@@ -9,7 +9,7 @@ const selectedProjectSlice = createSlice({
     catchline: "Application Next.JS pour gerer l'état de ses plantes",
     description: "Ce projet à été réalisé dans le but de perfectionner ma maitrise de Next.js. Grâce à ce projet j'ai pu explorer plus en détail les fonctionalités de Next.JS : API route, CSR / SSR, ... J'ai également eu l'occasion d'utiliser le systeme authentification OAuth grace à Auth.JS et son systeme de providers. Ainsi qu'une API REST intégrée à l'app utilisant la puissance de l'ORM Prisma.",
     image: [
-        {name: "image1", src: "/images/gar.webp"},
+        {name: "image1", src: "/images/projets/plantcare/plantcare.png"},
         {name: "image2", src: "/images/gar.webp"},
         {name: "image2", src: "/images/gar.webp"},
     ],

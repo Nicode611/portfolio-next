@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ProjectCard from './ProjectCard';
@@ -23,6 +23,23 @@ export default function Hero() {
       dispatch(setSelectedProject(project));
     };
 
+    const [showIntro, setShowIntro] = useState(false);
+    const [showImage, setShowImage] = useState(false);
+    const [showProjects, setShowProjects] = useState(false);
+
+    useEffect(() => {
+      
+      const timer3s = setTimeout(() => {
+        setShowIntro(true);
+        setShowImage(true);
+      }, 3000);
+      
+      const timer35s = setTimeout(() => {
+        setShowProjects(true);
+      }, 3500);
+      return () => clearTimeout(timer35s, timer4s);
+    }, []);
+
     /* useEffect(() => {
         for (let i = 0; i < 10; i++) {
           const bubble = document.createElement('div');
@@ -45,7 +62,11 @@ export default function Hero() {
     <section id='about' className="relative min-h-screen md:h-screen flex justify-center bg-white py-24 md:pb-24 md:pt-0 md:px-14 z-10 border-b-[1px] border-b-black/10">
       <div className="container mx-auto flex flex-col justify-between h-full z-20">
         <div className="flex items-center justify-around h-[70%]">
-            <div className='flex flex-col items-end w-3/6'>
+            <div
+              className={`flex flex-col items-end w-3/6 transition-all duration-700 ease-out transform ${
+                showIntro ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+            >
               <h2 className='text-right text-lg mb-3 text-primaryLight'>
                   Web developer, designer, and creator of digital experiences
               </h2>
@@ -61,7 +82,11 @@ export default function Hero() {
                 </p>
               </div>
             </div>
-            <div className='flex justify-center w-3/6'>
+            <div
+              className={`hidden md:flex justify-center w-3/6 transition-all duration-700 ease-out transform ${
+                showImage ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+              }`}
+            >
               <Image
                 src="/images/profile-picture.webp"
                 alt="Nicolas Guigay"
@@ -74,10 +99,11 @@ export default function Hero() {
 
         
 
-        <div className="flex flex-col h-[30%] mt-16 md:mt-0 z-20">
-            <h2 className="text-2xl text-center md:text-left m-0 md:text-2xl font-bold mb-3 ml-3 col-span-3 bg-primary px-3 py-1 text-white rounded-lg w-fit mx-auto ">
-                My Projects
-            </h2>
+        <div
+          className={`flex flex-col h-[30%] mt-16 md:mt-0 z-20 transition-all duration-700 ease-out transform ${
+            showProjects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
             <Swiper
               modules={[Navigation, Autoplay]}
               /* navigation */

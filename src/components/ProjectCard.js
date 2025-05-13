@@ -36,8 +36,9 @@ export default function ProjectCard({ project }) {
 				<Image
 					src={cardImage}
 					alt={cardTitle}
-					width={350}
-					height={350}
+          fill
+          objectFit='cover'
+          objectPosition='top center'
 					className="object-cover w-full h-full"
 				/>
 	    </div>

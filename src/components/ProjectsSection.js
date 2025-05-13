@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -22,27 +23,40 @@ export default function ProjectsSection() {
       (state) => state.selectedFeature
     );
 
-
-
     // React State
     const [modal, setModal] = useState(false)
     const [loaded, setLoaded] = useState(false)
+    const [offset, setOffset] = useState(-1500);
 
-const handleClickFeature = (feature) => {
-  dispatch(setSelectedFeature(feature));
-  setModal(true);
-};
+    useEffect(() => {
+      const handleScroll = () => {
+        const section = document.getElementById('projects');
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const progress = Math.min(Math.max((windowHeight - rect.top) / windowHeight, 0), 1);
+        setOffset(-200 * (1 - progress));
+      };
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
-    
+    const handleClickFeature = (feature) => {
+      dispatch(setSelectedFeature(feature));
+      setModal(true);
+    };
 
-		
     const imagesArray = selectedProject?.image;
 
     useEffect(() => {
+      // Retrigger fade-in whenever the selected project or its images change
       if (imagesArray && imagesArray.length > 0) {
-        setLoaded(true);
+        setLoaded(false);
+        const timer = setTimeout(() => setLoaded(true), 50);
+        return () => clearTimeout(timer);
       }
-    }, [imagesArray]);
+    }, [imagesArray, selectedProject.title]);
 
     const handleClick = (project) => {
         dispatch(setSelectedProject(project));
@@ -51,60 +65,60 @@ const handleClickFeature = (feature) => {
   return (
     
 
-    <section id="projects" className="relative section min-h-screen flex justify-center py-24 md:py-0 px-14 ">
-      <IoTriangleSharp size={1200} className="blur absolute -top-[645px] -left-[135px] text-[#0000005d] text-6xl opacity-100 z-0 rotate-90" />
-      <IoTriangleSharp size={1200} className="absolute -top-[650px] -left-[130px] text-[#1d576f] text-6xl opacity-100 z-0 rotate-90" />
+    <section id="projects" className="relative section min-h-screen flex justify-center py-24 md:py-0 px-14 inner-shadow">
+      <IoTriangleSharp
+        size={1200}
+        className="blur absolute -top-[645px] -left-[135px] text-[#0000005d] text-6xl z-0 rotate-90"
+        style={{ transform: `translateY(${offset}px) rotate(90deg)` }}
+      />
+      <IoTriangleSharp
+        size={1200}
+        className="absolute -top-[650px] -left-[130px] text-[#1d576f] text-6xl z-0 rotate-90"
+        style={{ transform: `translateY(${offset}px) rotate(90deg)` }}
+      />
       {/* Decorative geometric shapes */}
-        <div className="mx-auto w-full h-[70%] pt-10">
+        <div className="mx-auto w-full h-[70%] py-16">
           <div className="absolute inset-0 bg-gray-200 z-[-1]" />
           
-            <h2 className="relative text-4xl text-light font-bold mb-6 z-10">Projects</h2>
+            {/* <h2 className="relative text-4xl text-primaryDark font-bold mb-6 z-10">Projects</h2> */}
           
-          <div className="flex flex-col md:flex-row gap-y-12 md:gap-x-12 w-full h-full justify-around z-50">
+          <div className="flex flex-col md:flex-row gap-y-12 md:gap-y-0 md:gap-x-12 w-full h-full justify-around z-50">
   
             {/* Main project showcase */}
-            <div className="relative flex flex-col items-center bg-gray-100 shadow-md rounded-lg p-6 md:w-[65%] lg:w-[75%] max-w-[950px] h-full overflow-hidden z-50">
+            <div className="relative rounded-md flex flex-col items-center bg-gray-100 shadow-md md:w-[65%] lg:w-[75%] max-w-[950px] h-full overflow-hidden z-50">
               {/* Mettre animation d'apparition */}
               {imagesArray ?
-              	<div className={`flex flex-col w-full h-full transition-opacity duration-500 ease-in-out ${loaded ? 'opacity-100' : 'opacity-0'}`}>
-              		<div className="grid grid-cols-2 md:flex gap-8 justify-items-center h-[30%] w-full">
-  		                <div className='bg-gray-200 rounded-lg aspect-video w-full h-full relative'>
-  		                    <Link href={imagesArray[0]?.src}>
-  		                      <Image
-    		                      src={imagesArray[0]?.src}
-    													alt={imagesArray[0]?.name}
-    													fill
-    													objectFit='cover'
-                              className='rounded-md'
-    		                    />
-  		                    </Link>
-  		                </div>
-  		                <div className='bg-gray-200 rounded-lg aspect-video w-full h-full relative'>
-  		                    <Link href={imagesArray[1]?.src}>
-  		                      <Image
-    		                      src={imagesArray[1]?.src}
-    													alt={imagesArray[1]?.name}
-    													fill
-    													objectFit='cover'
-                              className='rounded-md'
-    		                    />
-  		                    </Link>
-  		                </div>
-  		                <div className='bg-gray-200 rounded-lg aspect-video w-full h-full relative'>
-  		                    <Link href={imagesArray[2]?.src}>
-  		                      <Image
-    		                      src={imagesArray[2]?.src}
-    													alt={imagesArray[2]?.name}
-    													fill
-    													objectFit='cover'
-                              className='rounded-md'
-    		                    />
-  		                    </Link>
-  		                </div>
-  		            </div>
-  		            <div className="flex flex-col space-y-4 mt-6 border-t-2 border-primary/50 pt-3">
-  		              <h3 className="text-2xl text-center font-semibold mb-2">{selectedProject.title}</h3>
-  		              <p className="text-gray-600 text-center pb-5">
+              	<motion.div
+                  key={selectedProject.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="flex flex-col w-full h-full"
+                >
+                    
+                    <div className='bg-gray-200 rounded-lg aspect-video w-auto h-[200px] max-h-[200px] relative'>
+                        <Link href={imagesArray[0]?.src}>
+                          <Image
+                            src={imagesArray[0]?.src}
+                            alt={imagesArray[0]?.name}
+                            fill
+                            objectFit='cover'
+                            objectPosition='top center'
+                            className='rounded-md'
+                          />
+                          <div className='absolute inset-0 bg-gray-600 opacity-0 hover:opacity-50 transition-opacity duration-300 ease-in-out' >
+                            <div className='absolute inset-0 flex items-center justify-center'>
+                              <span className='text-light/100 text-2xl font-bold'>Voir le projet</span>
+                            </div>
+                          </div>
+                        </Link>
+                        <div className='linear-gradient absolute left-0 right-0 bottom-0 h-[50px] bg-gradient-to-t from-[#F3F4F6] to-transparent'>
+
+                        </div>
+                    </div>
+  		            <div className="flex flex-col space-y-4 mt-6 pt-3 p-6">
+  		              <h3 className="text-[3rem] text-left font-semibold mb-2 ml-5 text-primaryDark">{selectedProject.title}</h3>
+  		              <p className="text-gray-500 text-center pb-5">
   		                {selectedProject.description}
   		              </p>
   
@@ -156,26 +170,26 @@ const handleClickFeature = (feature) => {
   
                     
   		            </div>
-              	</div>
+              	</motion.div>
               : ""}
             </div>
             
             {/* Sidebar projects */}
-            <div className="space-y-6 md:w-[35%] lg:w-[25%]  p-4 rounded-md ">
+            <div className="flex flex-col justify-center space-y-6 md:w-[35%] lg:w-[25%]  p-4 rounded-sm ">
               {projectsList.map((project, index) => (
                 <div
                   key={index}
                   onClick={() => { handleClick(project) }}
-                  className="relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 rounded-md transform transition-transform duration-300 ease-in-out hover:scale-105 "
+                  className="relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 "
                 >
                   <Image
                     src={project.image[0]?.src}
                     alt={project.image[0]?.name}
                     fill
                     objectFit='cover'
+                    objectPosition='top center'
                     className='rounded-md'
                   />
-                  {/* mettre animation de transform smooth et link le hover au container */}
                   <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 p-2 rounded-b-md transition-colors duration-300 ease-in-out group-hover:bg-[#508aa1df] group-hover:text-light">
                     <span className="z-20 ">{project.title}</span>
                   </div>
