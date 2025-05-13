@@ -68,12 +68,12 @@ export default function ProjectsSection() {
     <section id="projects" className="relative section min-h-screen flex justify-center py-24 md:py-0 px-14 inner-shadow">
       <IoTriangleSharp
         size={1200}
-        className="blur absolute -top-[645px] -left-[135px] text-[#0000005d] text-6xl z-0 rotate-90"
+        className="blur absolute -top-[645px] -left-[116px] text-[#0000005d] text-6xl z-0 rotate-90"
         style={{ transform: `translateY(${offset}px) rotate(90deg)` }}
       />
       <IoTriangleSharp
         size={1200}
-        className="absolute -top-[650px] -left-[130px] text-[#1d576f] text-6xl z-0 rotate-90"
+        className="absolute -top-[650px] -left-[113px] text-[#1d576f] text-6xl z-0 rotate-90"
         style={{ transform: `translateY(${offset}px) rotate(90deg)` }}
       />
       {/* Decorative geometric shapes */}
@@ -85,7 +85,6 @@ export default function ProjectsSection() {
           <div className="flex flex-col md:flex-row gap-y-12 md:gap-y-0 md:gap-x-12 w-full h-full justify-around z-50">
   
             {/* Main project showcase */}
-            <div className="relative rounded-md flex flex-col items-center bg-gray-100 shadow-md md:w-[65%] lg:w-[75%] max-w-[950px] h-full overflow-hidden z-50">
               {/* Mettre animation d'apparition */}
               {imagesArray ?
               	<motion.div
@@ -93,10 +92,10 @@ export default function ProjectsSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="flex flex-col w-full h-full"
+                  className="relative rounded-md flex flex-col items-center bg-gray-100 shadow-md md:w-[65%] lg:w-[75%] max-w-[950px] h-full overflow-hidden z-50"
                 >
                     
-                    <div className='bg-gray-200 rounded-lg aspect-video w-auto h-[200px] max-h-[200px] relative'>
+                    <div className='bg-gray-200 rounded-lg aspect-video w-full h-[200px] max-h-[200px] relative'>
                         <Link href={imagesArray[0]?.src}>
                           <Image
                             src={imagesArray[0]?.src}
@@ -112,9 +111,7 @@ export default function ProjectsSection() {
                             </div>
                           </div>
                         </Link>
-                        <div className='linear-gradient absolute left-0 right-0 bottom-0 h-[50px] bg-gradient-to-t from-[#F3F4F6] to-transparent'>
-
-                        </div>
+                        <div className='linear-gradient absolute left-0 right-0 bottom-0 h-[50px] bg-gradient-to-t from-[#F3F4F6] to-transparent'></div>
                     </div>
   		            <div className="flex flex-col space-y-4 mt-6 pt-3 p-6">
   		              <h3 className="text-[3rem] text-left font-semibold mb-2 ml-5 text-primaryDark">{selectedProject.title}</h3>
@@ -134,7 +131,7 @@ export default function ProjectsSection() {
                             <span>{feature.catchLine}</span>
                           </div>
                           <div
-                            className="absolute inset-0 flex flex-col justify-center items-center bg-primaryLight text-light p-1 rounded-md z-20 transition-transform duration-500 ease-in-out group-hover:-translate-x-[260px]"
+                            className="absolute inset-0 flex flex-col justify-center items-center bg-primaryLight text-light p-1 rounded-md z-20 transition-all duration-500 ease-in-out group-hover:-translate-x-[260px] group-hover:border-r-2 group-hover:border-[#444]"
                           >
                             <span className="text-[0.8rem] md:text-sm whitespace-nowrap">{feature.title}</span>
                           </div>
@@ -180,7 +177,6 @@ export default function ProjectsSection() {
   		            </div>
               	</motion.div>
               : ""}
-            </div>
             
             {/* Sidebar projects */}
             <div className="flex flex-col justify-center space-y-6 md:w-[35%] lg:w-[25%]  p-4 rounded-sm ">

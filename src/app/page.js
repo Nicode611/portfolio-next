@@ -40,16 +40,42 @@ export default function Home() {
     <>
       {showOverlay && (
         <div className="fixed inset-0 z-50 overflow-hidden">
-          <div className="absolute inset-0 flex">
+          <div className="absolute inset-0 overflow-hidden">
+            {/* Delayed upper-left white triangle */}
             <div
-              className={`bg-[#064E6A] w-1/2 h-full transform transition-transform duration-1000 ${
-                split ? '-translate-x-full' : 'translate-x-0'
-              }`}
+              className="absolute -inset-px transform transition-transform duration-1000 delay-200"
+              style={{
+                backgroundColor: '#F3F4F6',
+                clipPath: 'polygon(0 0, 100% 0, 0 100%)',
+                transform: split ? 'translate(-100%, -100%)' : 'translate(0, 0)',
+              }}
             />
+            {/* Upper-left triangle */}
             <div
-              className={`bg-[#064E6A] w-1/2 h-full transform transition-transform duration-1000 ${
-                split ? 'translate-x-full' : 'translate-x-0'
-              }`}
+              className="absolute inset-0 transform transition-transform duration-1000"
+              style={{
+                backgroundColor: '#064E6A',
+                clipPath: 'polygon(0 0, 100% 0, 0 100%)',
+                transform: split ? 'translate(-100%, -100%)' : 'translate(0, 0)',
+              }}
+            />
+            {/* Delayed lower-right white triangle */}
+            <div
+              className="absolute -inset-px transform transition-transform duration-1000 delay-200"
+              style={{
+                backgroundColor: '#F3F4F6',
+                clipPath: 'polygon(100% 0, 100% 100%, 0 100%)',
+                transform: split ? 'translate(100%, 100%)' : 'translate(0, 0)',
+              }}
+            />
+            {/* Lower-right triangle */}
+            <div
+              className="absolute inset-0 transform transition-transform duration-1000"
+              style={{
+                backgroundColor: '#064E6A',
+                clipPath: 'polygon(100% 0, 100% 100%, 0 100%)',
+                transform: split ? 'translate(100%, 100%)' : 'translate(0, 0)',
+              }}
             />
           </div>
           <div

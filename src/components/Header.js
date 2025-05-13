@@ -44,7 +44,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex items-center space-x-8">
           <span
             className="hover:cursor-pointer relative group"
             onClick={() => handleClick('about')}
@@ -72,6 +72,16 @@ export default function Header() {
               <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-light transition-all duration-300 ease-in-out group-hover:w-full" />
             </>
           </span>
+         <div className='flex space-x-3'>
+            <Avatar className="size-8 border-2 border-white hover: cursor-pointer">
+              <AvatarImage src="/images/fr-flag.png" alt="French" width={20} height={20} />
+              <AvatarFallback>Fr</AvatarFallback>
+            </Avatar>
+            <Avatar className="size-8 border-2 border-white hover: cursor-pointer">
+              <AvatarImage src="/images/en-flg.webp" alt="English" width={20} height={20} />
+              <AvatarFallback>En</AvatarFallback>
+            </Avatar>
+         </div>
         </nav>
 
         {/* Mobile menu button */}

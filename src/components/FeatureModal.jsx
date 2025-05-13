@@ -17,7 +17,7 @@ export default function FeatureModal({feature, onClose}) {
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
       tabIndex="-1"
-
+      onClick={onClose}
     className="fixed top-0 left-0 w-screen h-screen bg-black/70 backdrop-blur-lg flex items-center justify-center z-[1000]">
       <motion.div
         initial={{ scale: 0.8 }}
@@ -30,7 +30,7 @@ export default function FeatureModal({feature, onClose}) {
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
       
-      className=" bg-white/80 p-6 relative rounded">
+      className=" bg-white/80 p-6 max-w-[50%] relative rounded">
         <button
           onClick={onClose}
           className="absolute top-2 right-5 text-[2.6rem] font-bold"
