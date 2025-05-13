@@ -93,76 +93,107 @@ export default function Header() {
         </nav>
 
         {/* Mobile menu button */}
-        <div className="md:hidden">
+        <div className="md:hidden z-50">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className=""
+            className="relative w-10 h-10 flex justify-center items-center focus:outline-none"
+            aria-label="Menu"
           >
-            {mobileMenuOpen ? (
-              <span className="text-2xl">×</span>
-            ) : (
-              <span className="text-xl">☰</span>
-            )}
+            <div className="relative flex flex-col items-center justify-center">
+              <span 
+                className={`block h-0.5 w-6 bg-white rounded-sm transition-all duration-300 ease-out ${mobileMenuOpen ? 'transform rotate-[20deg] translate-y-1.5' : '-translate-y-1'}`}
+              />
+              <span 
+                className={`block h-0.5 w-6 bg-white rounded-sm transition-all duration-300 ease-out ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}
+              />
+              <span 
+                className={`block h-0.5 w-6 bg-white rounded-sm transition-all duration-300 ease-out ${mobileMenuOpen ? 'transform -rotate-[20deg] -translate-y-1.5' : 'translate-y-1'}`}
+              />
+            </div>
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <nav className="md:hidden pt-4 pb-2 px-4 bg-gray-100">
-          <ul className="space-y-2">
+      <nav 
+        className={`md:hidden fixed top-0 right-0 bottom-0 w-full max-w-[300px] bg-primary shadow-lg transform transition-transform duration-300 ease-in-out z-40 ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="h-full flex flex-col justify-between pt-20 pb-6 px-6">
+          <ul className="space-y-6">
             <li>
               <span
-                className="block text-gray-800 hover:text-primary py-2 cursor-pointer"
+                className="flex items-center text-light text-lg font-medium hover:text-gray-200 transition-colors cursor-pointer"
                 onClick={() => {
                   handleClick('about');
                   setMobileMenuOpen(false);
                 }}
               >
-                {lang == 'fr' ? 'À propos' : 'About'}
+                <span className="relative">
+                  {lang === 'fr' ? 'À propos' : 'About'}
+                  <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-light transition-all duration-300 ease-in-out group-hover:w-full" />
+                </span>
               </span>
             </li>
             <li>
               <span
-                className="block text-gray-800 hover:text-primary py-2 cursor-pointer"
+                className="flex items-center text-light text-lg font-medium hover:text-gray-200 transition-colors cursor-pointer"
                 onClick={() => {
                   handleClick('projects');
                   setMobileMenuOpen(false);
                 }}
               >
-                {lang === 'fr' ? 'Projets' : 'Projects'}
+                <span className="relative">
+                  {lang === 'fr' ? 'Projets' : 'Projects'}
+                  <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-light transition-all duration-300 ease-in-out group-hover:w-full" />
+                </span>
               </span>
             </li>
             <li>
               <span
-                className="block text-gray-800 hover:text-primary py-2 cursor-pointer"
+                className="flex items-center text-light text-lg font-medium hover:text-gray-200 transition-colors cursor-pointer"
                 onClick={() => {
                   handleClick('contact');
                   setMobileMenuOpen(false);
                 }}
               >
-                Contact
+                <span className="relative">
+                  Contact
+                  <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-light transition-all duration-300 ease-in-out group-hover:w-full" />
+                </span>
               </span>
             </li>
-            <li className="flex space-x-3 pt-2">
-              <Avatar className="size-8 border-2 border-gray-300 cursor-pointer" onClick={() => {
+          </ul>
+          <div>
+            <p className="text-light text-sm mb-4">{lang === 'fr' ? 'Changer de langue' : 'Change language'}</p>
+            <div className="flex space-x-4">
+              <Avatar className="size-10 border-2 border-white cursor-pointer transition-transform hover:scale-105" onClick={() => {
                 dispatch(setLanguage('fr'));
                 setMobileMenuOpen(false);
               }}> 
                 <AvatarImage src="/images/fr-flag.png" alt="French" width={20} height={20} />
                 <AvatarFallback>Fr</AvatarFallback>
               </Avatar>
-              <Avatar className="size-8 border-2 border-gray-300 cursor-pointer" onClick={() => {
+              <Avatar className="size-10 border-2 border-white cursor-pointer transition-transform hover:scale-105" onClick={() => {
                 dispatch(setLanguage('en'));
                 setMobileMenuOpen(false);
               }}>
                 <AvatarImage src="/images/en-flg.webp" alt="English" width={20} height={20} />
                 <AvatarFallback>En</AvatarFallback>
               </Avatar>
-            </li>
-          </ul>
-        </nav>
-      )}
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      {/* Overlay when mobile menu is open */}
+      <div 
+        className={`fixed inset-0 bg-black transition-opacity duration-300 md:hidden z-30 ${
+          mobileMenuOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`} 
+        onClick={() => setMobileMenuOpen(false)}
+      ></div>
     </header>
   );
 }

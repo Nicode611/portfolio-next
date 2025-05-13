@@ -17,49 +17,9 @@ export default function ContactSection() {
     message: '',
   });
   
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simuler un envoi de formulaire
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
-      
-      // Réinitialiser le message de succès après 5 secondes
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
-    }, 1500);
-    
-    // Dans un cas réel, vous utiliseriez un code comme celui-ci :
-    // try {
-    //   const response = await fetch('/api/contact', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
-    //   
-    //   if (response.ok) {
-    //     setSubmitSuccess(true);
-    //     setFormData({ name: '', email: '', message: '' });
-    //   }
-    // } catch (error) {
-    //   console.error('Error submitting form:', error);
-    // } finally {
-    //   setIsSubmitting(false);
-    // }
   };
   
   return (
@@ -106,7 +66,12 @@ export default function ContactSection() {
           </div>
           
           <div className='w-full md:w-2/5 pb-10 md:py-10'>
-            <form onSubmit={handleSubmit} className="flex flex-col items-center w-full min-w-14 space-y-5 pb-10">
+            <form
+              action="https://formspree.io/f/mzzrkdzo"
+              method="POST"
+              className="flex flex-col items-center w-full min-w-14 space-y-5 pb-10"
+            >
+              <input type="hidden" name="_replyto" value={formData.email} />
               <div className='w-[90%]'>
                 <label htmlFor="name" className="block text-sm font-medium mb-1">
                   {lang === 'fr' ? "Nom" : "Name"}
@@ -154,23 +119,10 @@ export default function ContactSection() {
               
               <button
                 type="submit"
-                disabled={isSubmitting}
                 className="bg-white text-dark rounded-sm px-4 py-1 active:bg-primaryLight active:text-light focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
               >
-                {isSubmitting 
-                  ? (lang === 'fr' ? 'Envoi en cours...' : 'Sending...') 
-                  : (lang === 'fr' ? 'Envoyer le message' : 'Send Message')
-                }
+                {lang === 'fr' ? 'Envoyer le message' : 'Send Message'}
               </button>
-              
-              {submitSuccess && (
-                <div className="mt-4 p-3 bg-green-100 text-green-700 rounded-md">
-                  {lang === 'fr' 
-                    ? 'Message envoyé avec succès ! Je vous répondrai bientôt.'
-                    : 'Message sent successfully! I\'ll get back to you soon.'
-                  }
-                </div>
-              )}
             </form>
           </div>
         </div>
