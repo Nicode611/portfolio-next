@@ -3,7 +3,7 @@ const projectsList = [
     id: 1,
     title: "Hello Voisins",
     catchline: "Application de type reseaux sociaux, facilitant la communication entre voisins",
-    description: "Le projet Hello Voisins etait mon projet de fin d'etudes. Le but : créer une application de gestion de données. Ce projet bien que non abouti m'a permis de découvrir différentes technologie et m'a apporté une nouvelle facon de travailler, notamment sur la gestion de projet.",
+    description: "Le projet Hello Voisins a été réalisé dans le cadre de mon projet de fin d’études. Il s’agit d’une application de gestion de données visant à faciliter les échanges entre voisins grâce à la géolocalisation. Le projet a été mené à terme dans une version fonctionnelle mais encore sommaire. Il m’a permis d’explorer différentes technologies et de renforcer mes compétences en gestion de projet et en développement d’application.",
     image: [
         {name: "mb2", src: "/images/projets/hello-voisins/hello.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
@@ -35,7 +35,7 @@ const projectsList = [
     id: 2,
     title: "PlantCare",
     catchline: "Application Next.JS pour gerer l'état de ses plantes",
-    description: "Ce projet à été réalisé dans le but de perfectionner ma maitrise de Next.js. Grâce à ce projet j'ai pu explorer plus en détail les fonctionalités de Next.JS : API route, CSR / SSR, ... J'ai également eu l'occasion d'utiliser le systeme authentification OAuth grace à Auth.JS et son systeme de providers. Ainsi qu'une API REST intégrée à l'app utilisant la puissance de l'ORM Prisma.",
+    description: "Ce projet a été réalisé dans le but de perfectionner ma maîtrise de Next.js. Il m’a permis d’explorer en profondeur plusieurs de ses fonctionnalités, telles que les routes API, le rendu côté client (CSR) et serveur (SSR). J’y ai également intégré un système d’authentification OAuth via Auth.js et ses providers, ainsi qu’une API REST connectée à une base de données grâce à l’ORM Prisma.",
     image: [
         {name: "image1", src: "/images/projets/plantcare/plantcare.png"},
         {name: "image2", src: "/images/gar.webp"},
@@ -86,7 +86,7 @@ const projectsList = [
     id: 3,
     title: "TO DO list",
     catchline: "Petit projet de création d'une to do list.",
-    description: "Ce petit projet m'as permis de m'entrainer à la création d'app sous react-create-app. J'ai également pu utiliser l'outil de gestion de state global redux.",
+    description: "Ce projet m’a permis de m’exercer à la création d’applications avec create-react-app. J’en ai profité pour mettre en place une gestion d’état globale à l’aide de Redux, consolidant ainsi mes bases sur cette bibliothèque.",
     image: [
         {name: "image1", src: "/images/projets/to-do-list/todo.png"},
         {name: "image2", src: "/images/mb.webp"},
@@ -114,7 +114,7 @@ const projectsList = [
     id: 4,
     title: "Projets wordpress",
     catchline: "Divers sites web crées via Wordpress a l'intention de professionels.",
-    description: "J'ai eu l'occasion de travailler en tant que freelance et d'avoir certains clients dont Minute Beauté et EM Sellerie. Bien que la création de site Wordpress via Elementor ne requiert pas d'incroyables compétences, le fait de travailler de manière professionnelle m'a permis de m'améliorer sur l'aspect conception et gestion d'un projet. ",
+    description: "J’ai eu l’occasion de travailler en tant que freelance pour plusieurs clients, dont Minute Beauté et EM Sellerie. Bien que la création de sites WordPress via Elementor ne représente pas un défi technique majeur, cette expérience m’a permis de progresser sur des aspects essentiels tels que la conception, la communication client et la gestion de projet dans un cadre professionnel. ",
     image: [
         {name: "mb2", src: "/images/projets/wordpress/mb.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
@@ -167,7 +167,7 @@ const projectsList = [
     id: 5,
     title: "Divers projets",
     catchline: "Divers projets, API, React Native, Shopify, projets en cours, .",
-    description: "J'ai eu l'occasion de travailler en tant que freelance et d'avoir certains clients dont Minute Beauté et EM Sellerie. Bien que la création de site Wordpress via Elementor ne requiert pas d'incroyables compétences, le fait de travailler de manière professionnelle m'a permis de m'améliorer sur l'aspect conception et gestion d'un projet. ",
+    description: "J’ai eu l’occasion de travailler sur plusieurs projets variés, allant de la création d’applications React Native à l’intégration de Shopify. Ces expériences m’ont permis d’explorer différentes facettes du développement web et mobile, tout en renforçant mes compétences techniques et ma capacité à m’adapter à divers environnements.",
     image: [
         {name: "Omnipost", src: "/images/projets/divers/omnipost.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},

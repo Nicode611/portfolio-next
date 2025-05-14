@@ -3,7 +3,7 @@ const projectsListEn = [
     id: 1,
     title: "Hello Voisins",
     catchline: "Social network application that facilitates communication between neighbors",
-    description: "The Hello Voisins project was my final study project. The goal: create a data management application. Although not fully completed, this project allowed me to discover different technologies and brought me a new way of working, especially regarding project management.",
+    description: "Hello Voisins was developed as my final year project. It’s a data management application designed to facilitate connections between neighbors through geolocation. While the project was completed in a basic yet functional version, it allowed me to explore various technologies and strengthen my skills in both application development and project management.",
     image: [
         {name: "mb2", src: "/images/projets/hello-voisins/hello.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
@@ -35,7 +35,7 @@ const projectsListEn = [
     id: 2,
     title: "PlantCare",
     catchline: "Next.JS application to manage the health of your plants",
-    description: "This project was created to perfect my mastery of Next.js. Through this project, I was able to explore Next.JS features in more detail: API routes, CSR / SSR, etc. I also had the opportunity to use the OAuth authentication system through Auth.JS and its provider system, as well as a REST API integrated into the app using the power of the Prisma ORM.",
+    description: "This project was created to deepen my knowledge of Next.js. It gave me the opportunity to explore several core features such as API routes, client-side and server-side rendering (CSR/SSR). I also integrated OAuth authentication using Auth.js and its provider system, along with a REST API connected to a database through the Prisma ORM.",
     image: [
         {name: "image1", src: "/images/projets/plantcare/plantcare.png"},
         {name: "image2", src: "/images/gar.webp"},
@@ -86,7 +86,7 @@ const projectsListEn = [
     id: 3,
     title: "TO DO list",
     catchline: "Small project creating a to-do list.",
-    description: "This small project allowed me to practice creating apps using react-create-app. I was also able to use the global state management tool Redux.",
+    description: "This project allowed me to practice building applications using create-react-app. I also implemented global state management with Redux, which helped me strengthen my understanding of the library.",
     image: [
         {name: "image1", src: "/images/projets/to-do-list/todo.png"},
         {name: "image2", src: "/images/mb.webp"},
@@ -114,7 +114,7 @@ const projectsListEn = [
     id: 4,
     title: "WordPress Projects",
     catchline: "Various websites created via WordPress for professionals.",
-    description: "I had the opportunity to work as a freelancer and have certain clients including Minute Beauté and EM Sellerie. Although creating WordPress sites via Elementor doesn't require incredible skills, working professionally allowed me to improve on the design and project management aspects.",
+    description: "As a freelance developer, I worked with several clients, including Minute Beauté and EM Sellerie. While building websites with WordPress and Elementor doesn’t require advanced technical skills, the experience helped me improve key aspects such as design, client communication, and project management in a professional context.",
     image: [
         {name: "mb2", src: "/images/projets/wordpress/mb.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
@@ -167,7 +167,7 @@ const projectsListEn = [
     id: 5,
     title: "Various Projects",
     catchline: "Various projects, API, React Native, Shopify, ongoing projects.",
-    description: "I had the opportunity to work as a freelancer and have certain clients including Minute Beauté and EM Sellerie. Although creating WordPress sites via Elementor doesn't require incredible skills, working professionally allowed me to improve on the design and project management aspects.",
+    description: "I’ve had the opportunity to work on a variety of projects, ranging from building React Native applications to integrating Shopify. These experiences allowed me to explore different aspects of web and mobile development, while strengthening my technical skills and my ability to adapt to diverse environments.",
     image: [
         {name: "Omnipost", src: "/images/projets/divers/omnipost.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},

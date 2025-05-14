@@ -53,8 +53,8 @@ export default function Hero() {
             >
               <h2 className='text-center md:text-right text-lg mb-3 text-primaryLight'>
                   {lang === 'fr'
-                    ? "Développeur web, designer et créateur d'expériences digitales"
-                    : 'Web developer, designer, and creator of digital experiences'
+                    ? "Développeur web fullstack, créateur de projets digitaux sur mesure"
+                    : 'Fullstack web developer, building custom digital solutions'
                   }
               </h2>
               <h1 className="text-[5rem] md:text-7xl text-center md:text-right text-primaryDark font-bold mb-3">
@@ -65,8 +65,8 @@ export default function Hero() {
               }`}>
                 <p className='text-center md:text-right text-gray-500 p-3 max-w-[500px]'>
                   {lang === 'fr'
-                    ? <>Passionné par le développement web, je conçois des projets <strong>modernes et soignés</strong> avec le souci du détail et de l&apos;expérience utilisateur. Ce portfolio en est un aperçu.</>
-                    : <>Passionate about web development, I create <strong>modern and polished</strong> projects with attention to detail and user experience. This portfolio gives you a glimpse of my work.</>
+                    ? <>Je développe des projets web <strong>modernes</strong> et bien structurés, en m’appuyant sur des outils actuels pour garantir une expérience claire et agréable. Ce portfolio en est un aperçu.</>
+                    : <>I develop modern, well-structured web projects using up-to-date tools to ensure a clear and pleasant user experience. This portfolio offers a glimpse of my work.</>
                   }
                 </p>
                 <FontAwesomeIcon className={`absolute -top-10 -left-10 transition-all duration-700 ease-out transform ${

@@ -100,7 +100,6 @@ export default function ProjectsSection() {
                 >
                     
                     <div className='bg-gray-200 rounded-lg aspect-video w-full h-[200px] max-h-[200px] relative'>
-                        <Link href={selectedProject.link} target='_blank'>
                           <Image
                             src={imagesArray[0]?.src}
                             alt={imagesArray[0]?.name}
@@ -109,12 +108,6 @@ export default function ProjectsSection() {
                             objectPosition='top center'
                             className='rounded-md'
                           />
-                          <div className='absolute inset-0 bg-gray-600 opacity-0 hover:opacity-50 transition-opacity duration-300 ease-in-out' >
-                            <div className='absolute inset-0 flex items-center justify-center'>
-                              <span className='text-light/100 text-2xl font-bold'>Voir le projet</span>
-                            </div>
-                          </div>
-                        </Link>
                         <div className='linear-gradient absolute left-0 right-0 bottom-0 h-[50px] bg-gradient-to-t from-[#F3F4F6] to-transparent'></div>
                     </div>
   		            <div className="flex flex-col w-full space-y-4 mt-6 pt-3 p-6">
