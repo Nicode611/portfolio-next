@@ -30,7 +30,7 @@ export default function FeatureModal({feature, onClose}) {
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
       
-      className=" bg-white/80 p-6 max-w-[50%] relative rounded">
+      className=" bg-white/80 p-6 max-w-[80%] md:max-w-[50%] relative rounded">
         <div className='flex items-center justify-between mb-4'>
           <h3 className="text-2xl font-semibold mb-4">
             {feature.title}

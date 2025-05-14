@@ -69,7 +69,7 @@ export default function ProjectsSection() {
   return (
     
 
-    <section id="projects" className="overflow-hidden relative section min-h-screen flex justify-center py-24 md:py-0 px-6 md:px-14 inner-shadow">
+    <section id="projects" className="overflow-hidden relative section min-h-screen flex items-center justify-center py-24 md:py-0 px-6 md:px-14 inner-shadow">
       <IoTriangleSharp
         size={1200}
         className="blur absolute -top-[645px] -left-[116px] text-[#0000005d] text-6xl z-0 rotate-90"
@@ -121,9 +121,9 @@ export default function ProjectsSection() {
                     <h4 className="text-left text-lg font-bold mt-2">
                       {lang === 'fr' ? "Fonctionnalités principales :" : "Highlighted features :"}
                     </h4>
-                    <div className='grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-5 pb-4'>
+                    <div className='grid grid-cols-1 w-full justify-items-center md:justify-items-start md:w-auto md:grid-cols-3 gap-2 md:gap-5 pb-4'>
                       {selectedProject.highlightFeatures.map((feature, index) => (
-                        <div key={index} className="relative h-8 md:h-14 overflow-hidden group hover:cursor-pointer rounded-md"  onClick={() => { handleClickFeature(feature) }}>
+                        <div key={index} className="relative h-8 md:h-14 w-[80%] md:w-full overflow-hidden group hover:cursor-pointer rounded-md"  onClick={() => { handleClickFeature(feature) }}>
                           <div className="absolute inset-0 flex items-center bg-gray-300 shadow-inner justify-center rounded-md z-0">
                             <span>{feature.catchLine}</span>
                           </div>

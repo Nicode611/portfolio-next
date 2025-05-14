@@ -46,10 +46,10 @@ export default function Hero() {
 
   return (
     <section id='about' className="overflow-hidden relative min-h-screen md:h-screen flex justify-center bg-white py-24 md:pb-24 md:pt-0 md:px-14 z-10 border-b-[1px] border-b-black/10">
-      <div className="container mx-auto flex flex-col justify-between h-full z-20">
-        <div className="flex items-center justify-around h-[70%]">
+      <div className="container mx-auto flex flex-col lg:items-center justify-between h-full z-20">
+        <div className="flex items-center justify-around h-[70%] lg:max-w-[1300px]">
             <div
-              className={`flex flex-col items-center md:items-end w-[85%] md:w-3/6 `}
+              className={`flex flex-col items-center md:items-end w-[85%] lg:w-full md:w-3/6  `}
             >
               <h2 className='text-center md:text-right text-lg mb-3 text-primaryLight'>
                   {lang === 'fr'
@@ -57,13 +57,13 @@ export default function Hero() {
                     : 'Fullstack web developer, building custom digital solutions'
                   }
               </h2>
-              <h1 className="text-[5rem] md:text-7xl text-center md:text-right text-primaryDark font-bold mb-3">
+              <h1 className="text-[5rem] md:text-7xl lg:text-[6rem] text-center md:text-right text-primaryDark font-bold mb-3">
                 Nicolas <br/> GUIGAY
               </h1>
               <div className={`relative w-[80%] md:w-auto bg-gray-100 mt-6 transition-all duration-500 ease-out transform ${
                 showIntro ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
               }`}>
-                <p className='text-center md:text-right text-gray-500 p-3 max-w-[500px]'>
+                <p className='text-center md:text-right text-gray-500 p-3 max-w-[500px] lg:max-w-[650px] lg:text-lg'>
                   {lang === 'fr'
                     ? <>Je développe des projets web <strong>modernes</strong> et bien structurés, en m’appuyant sur des outils actuels pour garantir une expérience claire et agréable. Ce portfolio en est un aperçu.</>
                     : <>I develop modern, well-structured web projects using up-to-date tools to ensure a clear and pleasant user experience. This portfolio offers a glimpse of my work.</>
@@ -79,7 +79,7 @@ export default function Hero() {
                 
             </div>
             <div
-              className={`hidden relative md:flex justify-center w-3/6 transition-all duration-500 ease-out transform ${
+              className={`hidden relative md:flex justify-center lg:justify-center items-center w-3/6 h-[70%] lg:h-[90%] transition-all duration-500 ease-out transform ${
                 showImage ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
               }`}
             >
@@ -88,7 +88,7 @@ export default function Hero() {
                 alt="Nicolas Guigay"
                 width={200}
                 height={200}
-                className=" z-10 rounded-full shadow-xl object-cover w-[300px] h-auto"
+                className=" z-10 rounded-full shadow-xl object-cover h-full max-h-[370px] min-w-[270px] max-w-[300px] w-[60%]"
               />
             </div>
         </div>
