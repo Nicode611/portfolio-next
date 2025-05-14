@@ -45,7 +45,7 @@ export default function Header() {
               <FontAwesomeIcon size="2xl" icon={faLinkedin} style={{ color: '#ffffff' }} />
             </Link>
           </div>
-          <Link href='/Guigay_Nicolas_CV.pdf' target='_blank' rel='noopener noreferrer' className="ml-5">
+          <Link href='/CV.pdf' target='_blank' rel='noopener noreferrer' className="ml-5">
             <button className='bg-primaryDark border-[1px] border-white text-white text-sm px-4 py-2 rounded-md hover:bg-primaryLight  transition duration-300'>
               {lang === 'fr' ? 'Mon CV' : 'My Resume'}
             </button>
