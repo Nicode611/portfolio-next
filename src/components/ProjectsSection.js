@@ -222,7 +222,7 @@ export default function ProjectsSection() {
                     >
                       <span className="z-20 ">{project.title}</span>
                     </div>
-                    <div className="hidden md:block absolute right-[50%] -bottom-[13px] translate-x-[50%] h-[2px] w-[10%] border-b-[1px] border-black/50" />
+                    <div className="hidden md:block absolute right-[50%] -bottom-[10px] translate-x-[50%] h-[2px] w-[20%] border-b-[3px] border-black/20 group-hover:border-black/60 rounded-full" />
                   </div>
                   );
                 })
@@ -248,7 +248,7 @@ export default function ProjectsSection() {
                     >
                       <span className="z-20 ">{project.title}</span>
                     </div>
-                    <div className="hidden md:block absolute right-[50%] -bottom-[13px] translate-x-[50%] h-[2px] w-[10%] border-b-[1px] border-black/50" />
+                    <div className="hidden md:block absolute right-[50%] -bottom-[10px] translate-x-[50%] h-[2px] w-[20%] border-b-[3px] border-black/20 group-hover:border-black/60 rounded-full" />
                   </div>
                   );
                 })
