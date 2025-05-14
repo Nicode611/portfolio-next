@@ -215,10 +215,10 @@ export default function ProjectsSection() {
                       fill
                       objectFit='cover'
                       objectPosition='top center'
-                      className='rounded-md'
+                      className='rounded-sm'
                     />
                     <div
-                      className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-md transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
+                      className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-sm transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
                     >
                       <span className="z-20 ">{project.title}</span>
                     </div>
@@ -241,14 +241,14 @@ export default function ProjectsSection() {
                       fill
                       objectFit='cover'
                       objectPosition='top center'
-                      className='rounded-md'
+                      className='rounded-sm'
                     />
                     <div
-                      className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-md transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
+                      className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-sm transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
                     >
                       <span className="z-20 ">{project.title}</span>
                     </div>
-                    <div className="absolute right-[50%] -bottom-[13px] translate-x-[50%] h-[2px] w-[10%] border-b-[1px] border-black/50" />
+                    <div className="hidden md:block absolute right-[50%] -bottom-[13px] translate-x-[50%] h-[2px] w-[10%] border-b-[1px] border-black/50" />
                   </div>
                   );
                 })
