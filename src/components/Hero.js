@@ -49,7 +49,7 @@ export default function Hero() {
       <div className="container mx-auto flex flex-col justify-between h-full z-20">
         <div className="flex items-center justify-around h-[70%]">
             <div
-              className={`flex flex-col items-center md:items-end w-3/6 `}
+              className={`flex flex-col items-center md:items-end w-[85%] md:w-3/6 `}
             >
               <h2 className='text-center md:text-right text-lg mb-3 text-primaryLight'>
                   {lang === 'fr'
@@ -60,7 +60,7 @@ export default function Hero() {
               <h1 className="text-[5rem] md:text-7xl text-center md:text-right text-primaryDark font-bold mb-3">
                 Nicolas <br/> GUIGAY
               </h1>
-              <div className={`relative bg-gray-100 mt-6 transition-all duration-500 ease-out transform ${
+              <div className={`relative w-[80%] md:w-auto bg-gray-100 mt-6 transition-all duration-500 ease-out transform ${
                 showIntro ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
               }`}>
                 <p className='text-center md:text-right text-gray-500 p-3 max-w-[500px]'>
