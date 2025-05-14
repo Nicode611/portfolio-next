@@ -65,8 +65,8 @@ export default function Hero() {
               }`}>
                 <p className='text-center md:text-right text-gray-500 p-3 max-w-[500px] lg:max-w-[650px] lg:text-lg'>
                   {lang === 'fr'
-                    ? <>Je développe des projets web <strong>modernes</strong> et bien structurés, en m’appuyant sur des outils actuels pour garantir une expérience claire et agréable. Ce portfolio en est un aperçu.</>
-                    : <>I develop modern, well-structured web projects using up-to-date tools to ensure a clear and pleasant user experience. This portfolio offers a glimpse of my work.</>
+                    ? <>Je développe des projets web <strong>modernes</strong> et bien <strong>structurés</strong>, en m’appuyant sur des <strong>outils actuels</strong> pour garantir une expérience claire et agréable. Ce <strong>portfolio</strong> en est un aperçu.</>
+                    : <>I develop <strong>modern</strong>, <strong>well-structured</strong> web projects using <strong>up-to-date tools</strong> to ensure a clear and pleasant user experience. This <strong>portfolio</strong> offers a glimpse of my work.</>
                   }
                 </p>
                 <FontAwesomeIcon className={`absolute -top-10 -left-10 transition-all duration-700 ease-out transform ${
