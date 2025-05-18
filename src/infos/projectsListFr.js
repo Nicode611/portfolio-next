@@ -167,9 +167,9 @@ const projectsList = [
     id: 5,
     title: "Divers projets",
     catchline: "Divers projets, API, React Native, Shopify, projets en cours, .",
-    description: "J’ai eu l’occasion de travailler sur plusieurs projets variés, allant de la création d’applications React Native à l’intégration de Shopify. Ces expériences m’ont permis d’explorer différentes facettes du développement web et mobile, tout en renforçant mes compétences techniques et ma capacité à m’adapter à divers environnements.",
+    description: "J’ai eu l’occasion de travailler sur plusieurs projets variés, allant de la création d’applications React Native à l’intégration de Shopify. J’ai également collaboré sur des projets open source sur GitHub, ce qui m’a permis d’explorer différentes facettes du développement web et mobile, tout en renforçant mes compétences techniques et ma capacité à m’adapter à divers environnements de travail.",
     image: [
-        {name: "Omnipost", src: "/images/projets/divers/omnipost.png"},
+        {name: "Divers", src: "/images/projets/divers/divers.png"},
         {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
         {name: "sellerie1", src: "/images/projets/wordpress/sellerie1.png"},
     ],
