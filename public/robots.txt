@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.nicolas-guigay.com/sitemap.xml
+
+# Empêcher l'indexation des fichiers de développement (si nécessaire)
+Disallow: /_next/
+Disallow: /api/
+
+# Autoriser l'indexation des images et assets
+Allow: /images/
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.pdf
