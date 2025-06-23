@@ -1,12 +1,19 @@
 "use client";
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { closeGallery } from '@/redux/gallerySlice';
 import Hero from '../components/Hero';
 import ProjectsSection from '../components/ProjectsSection';
 import ContactSection from '../components/ContactSection';
+import ImageGalleryModal from '../components/ImageGalleryModal';
 
 export default function Home() {
   const [showOverlay, setShowOverlay] = useState(true);
   const [split, setSplit] = useState(false);
+  
+  // Redux state
+  const dispatch = useDispatch();
+  const gallery = useSelector((state) => state.gallery);
 
   useEffect(() => {
     // start split animation 500ms after choice
@@ -91,6 +98,13 @@ export default function Home() {
         <ProjectsSection />
         <ContactSection />
       </div>
+      
+      {/* Image Gallery Modal - Rendu au niveau global */}
+      <ImageGalleryModal
+        images={gallery.images}
+        isOpen={gallery.isOpen}
+        onClose={() => dispatch(closeGallery())}
+      />
     </>
   );
 }

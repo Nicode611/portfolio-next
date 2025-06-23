@@ -13,7 +13,8 @@ module.exports = {
       boxShadow: {
         button: '1px 2px 2px 1px rgba(0, 0, 0, 0.285)',
         activeButton: 'inset 1px 2px 2px 0px rgba(0, 0, 0, 0.285)',
-        primaryShadow: '2px 2px 0px 2px #277A1C'
+        primaryShadow: '2px 2px 0px 2px #277A1C',
+        inner: 'inset 0 0 10px 0 rgba(0, 0, 0, 0.185)'
       },
       colors: {
         background: 'hsl(var(--background))',

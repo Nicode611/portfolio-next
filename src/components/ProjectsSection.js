@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedProject } from '@/redux/selectedProjectSlice';
 import { setSelectedFeature } from '@/redux/selectedFeatureSlice';
+import { openGallery } from '@/redux/gallerySlice';
 import FeatureModal from './FeatureModal';
 import projectsListFr from '@/infos/projectsListFr';
 import projectsListEn from '@/infos/projectsListEn';
@@ -99,7 +100,7 @@ export default function ProjectsSection() {
                   className="relative rounded-md flex flex-col items-center bg-gray-100 shadow-md md:w-[65%] lg:w-[75%] max-w-[950px] h-full overflow-hidden z-50"
                 >
                     
-                    <div className='bg-gray-200 rounded-lg aspect-video w-full h-[200px] max-h-[200px] relative'>
+                    <div className='bg-gray-200 rounded-lg aspect-video w-full h-[200px] max-h-[200px] relative cursor-pointer hover:opacity-90 transition-opacity' onClick={() => dispatch(openGallery(imagesArray))}>
                           <Image
                             src={imagesArray[0]?.src}
                             alt={imagesArray[0]?.name}
@@ -109,6 +110,21 @@ export default function ProjectsSection() {
                             className='rounded-md'
                           />
                         <div className='linear-gradient absolute left-0 right-0 bottom-0 h-[50px] bg-gradient-to-t from-[#F3F4F6] to-transparent'></div>
+                        {/* Overlay with gallery icon */}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black bg-opacity-30 rounded-md">
+                          <div className="flex flex-col justify-center items-center text-white text-center">
+                            <Image
+                            src={"/images/logos/image-logo.svg"}
+                            alt="image logo"
+                            width={20}
+                            height={20}
+                            className='w-6 h-6'
+                            />
+                            <div className="text-sm font-medium">
+                              {lang === 'fr' ? 'Voir la galerie' : 'View gallery'}
+                            </div>
+                          </div>
+                        </div>
                     </div>
   		            <div className="flex flex-col w-full space-y-4 mt-6 pt-3 p-6">
   		              <h3 className="text-[3rem] text-left font-semibold mb-2 ml-5 text-primaryDark">{selectedProject.title}</h3>
@@ -128,7 +144,7 @@ export default function ProjectsSection() {
                             <span>{feature.catchLine}</span>
                           </div>
                           <div
-                            className="absolute inset-0 flex flex-col justify-center items-center bg-primaryLight text-light p-1 rounded-md z-20 transition-all duration-500 ease-in-out group-hover:-translate-x-[260px] group-hover:border-r-2 group-hover:border-[#444]"
+                            className="absolute inset-0 flex flex-col justify-center items-center bg-primaryLight text-light p-1 rounded-md z-20 transition-all duration-500 ease-in-out group-hover:-translate-x-[260px] group-hover:shadow-black group-hover:shadow-lg"
                           >
                             <span className="text-[0.8rem] md:text-sm whitespace-nowrap">{feature.title}</span>
                           </div>

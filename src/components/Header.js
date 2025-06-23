@@ -82,13 +82,13 @@ export default function Header() {
             </>
           </span>
          <div className='flex space-x-3'>
-            <Avatar className="size-8 border-[1px] border-primaryDark hover:cursor-pointer" onClick={() => {
+            <Avatar className={`size-8 border-[1px] border-primaryDark hover:cursor-pointer ${lang === 'fr' ? 'border-white' : ''}`} onClick={() => {
               dispatch(setLanguage('fr'));
             }}> 
               <AvatarImage src="/images/fr-flag.png" alt="French" width={20} height={20} />
               <AvatarFallback>Fr</AvatarFallback>
             </Avatar>
-            <Avatar className="size-8 border-[1px] border-primaryDark hover:cursor-pointer" onClick={() => {
+            <Avatar className={`size-8 border-[1px] border-primaryDark hover:cursor-pointer ${lang === 'en' ? 'border-white' : ''}`} onClick={() => {
               dispatch(setLanguage('en'));
             }}>
               <AvatarImage src="/images/en-flg.webp" alt="English" width={20} height={20} />
@@ -173,14 +173,14 @@ export default function Header() {
           <div>
             <p className="text-light text-sm mb-4">{lang === 'fr' ? 'Changer de langue' : 'Change language'}</p>
             <div className="flex space-x-4">
-              <Avatar className="size-10 border-2 border-white cursor-pointer transition-transform hover:scale-105" onClick={() => {
+              <Avatar className={`size-10 border-[1px] border-primaryDark cursor-pointer transition-transform hover:scale-105 ${lang === 'fr' ? 'border-white' : ''}`} onClick={() => {
                 dispatch(setLanguage('fr'));
                 setMobileMenuOpen(false);
               }}> 
                 <AvatarImage src="/images/fr-flag.png" alt="French" width={20} height={20} />
                 <AvatarFallback>Fr</AvatarFallback>
               </Avatar>
-              <Avatar className="size-10 border-2 border-white cursor-pointer transition-transform hover:scale-105" onClick={() => {
+              <Avatar className={`size-10 border-[1px] border-primaryDark cursor-pointer transition-transform hover:scale-105 ${lang === 'en' ? 'border-white' : ''}`} onClick={() => {
                 dispatch(setLanguage('en'));
                 setMobileMenuOpen(false);
               }}>

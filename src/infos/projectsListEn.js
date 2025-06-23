@@ -1,35 +1,49 @@
 const projectsListEn = [
   {
-    id: 1,
-    title: "Hello Voisins",
-    catchline: "Social network application that facilitates communication between neighbors",
-    description: "Hello Voisins was developed as my final year project. It’s a data management application designed to facilitate connections between neighbors through geolocation. While the project was completed in a basic yet functional version, it allowed me to explore various technologies and strengthen my skills in both application development and project management.",
+    id: 6,
+    title: "Easy Apply",
+    catchline: "A job aggregator to easily apply from one place",
+    description: "I developed this application using Next.js for the frontend, connected to a Puppeteer scraper via a Node/Express API, to automatically gather job offers from multiple sources and simplify the application process.",
     image: [
-        {name: "mb2", src: "/images/projets/hello-voisins/hello.png"},
-        {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
-        {name: "sellerie1", src: "/images/projets/wordpress/sellerie1.png"},
+        {name: "easy-apply-find-job", src: "/images/projets/easy-apply/easy-apply-find-job.webp"},
+        {name: "easy-apply-saved", src: "/images/projets/easy-apply/easy-apply-saved.webp"},
+        {name: "easy-apply-landing", src: "/images/projets/easy-apply/easy-apply-landing.webp"},
     ],
     highlightFeatures: [
-      {title: "Communication through geolocation",
-        catchLine: "Using Google Maps API",
-        description: "This feature allows users to easily locate and contact nearby neighbors through an interactive map integrated via Google Maps API. With their consent, I simply needed to retrieve each user's position to calculate their distance using the Haversine formula."},
-      {title: "Websocket server",
-        catchLine: "Using Ratchet",
-        description: "By integrating Ratchet, a PHP websocket server, I was able to implement real-time communication between users. This technology allows sending and receiving messages instantly without reloading the page."
+      {
+        title: "Multi-site scraping",
+        catchLine: "HelloWork, Indeed, WTTJ...",
+        description: "Development of an automated scraping system using Puppeteer and JobSpy (open source project) to extract job offers from several platforms (HelloWork, Welcome to the Jungle, Indeed, LinkedIn, etc.). Includes pagination handling, structured data extraction, and resilience to UI changes."
       },
-      {title: "Group creation",
-        catchLine: "Database management",
-        description: "Users can create and join discussion groups. This involves dynamic data management on the database side (creation, joining, deletion), with personalized content display based on membership to one or more groups."
+      {
+        title: "Monorepo architecture",
+        catchLine: "3 interconnected services",
+        description: "Design of a distributed architecture with three services: Next.js frontend (port 3000), Express API with Puppeteer (port 3001), and Python FastAPI with JobSpy (port 8000). Orchestration is simplified via shell scripts and Makefile."
       },
+      {
+        title: "Advanced state management",
+        catchLine: "Save, apply, take notes",
+        description: "Comprehensive job management system with multiple states (saved/applied), follow-up dates, and personalized notes. Intuitive interface to switch between statuses and full action history, with data persistence through Prisma ORM."
+      },
+      {
+        title: "Secure authentication",
+        catchLine: "Auth.js, Google OAuth",
+        description: "Robust authentication system with Auth.js, supporting Google OAuth and credentials login, route protection middleware, and full Prisma integration for reliable data storage."
+      },
+      {
+        title: "Modern interface",
+        catchLine: "Tailwind, Redux, TypeScript",
+        description: "Modern and responsive user interface built with Tailwind CSS, global state management with Redux Toolkit, reusable components, smooth animations, and strict TypeScript typing. Optimized UX for job search and management."
+      }
     ],
     technos: [
-      { name: "HTML / CSS", icon: "/images/logos/html.svg" },
-      { name: "JS", icon: "/images/logos/js.svg" },
-      { name: "PHP", icon: "/images/logos/php.svg" },
-      { name: "SQL", icon: "/images/logos/sql.svg" },
+      { name: "Next.JS", icon: "/images/logos/next.svg" },
+      { name: "Node.JS", icon: "/images/logos/node.svg" },
+      { name: "Tailwind", icon: "/images/logos/tailwind.svg" },
+      { name: "Puppeteer", icon: "/images/logos/puppeteer.svg" },
+      { name: "Express", icon: "/images/logos/node.svg" }
     ],
-    link: "https://github.com/Nicode611/Hello-voisins-WebApp",
-    
+    link: "https://github.com/Nicode611/easy-apply-app.git"
   },
   {
     id: 2,
@@ -37,9 +51,13 @@ const projectsListEn = [
     catchline: "Next.JS application to manage the health of your plants",
     description: "This project was created to deepen my knowledge of Next.js. It gave me the opportunity to explore several core features such as API routes, client-side and server-side rendering (CSR/SSR). I also integrated OAuth authentication using Auth.js and its provider system, along with a REST API connected to a database through the Prisma ORM.",
     image: [
-        {name: "image1", src: "/images/projets/plantcare/plantcare.png"},
-        {name: "image2", src: "/images/gar.webp"},
-        {name: "image2", src: "/images/gar.webp"},
+      {name: "landing", src: "/images/projets/plantcare/landing.webp"},
+      {name: "dashboard-dark", src: "/images/projets/plantcare/dashboard-dark.webp"},
+      {name: "dashboard-light", src: "/images/projets/plantcare/dashboard-light.webp"},
+      {name: "my-plants-dark", src: "/images/projets/plantcare/my-plants-dark.webp"},
+      {name: "my-plants-light", src: "/images/projets/plantcare/my-plants-light.webp"},
+      {name: "settings-dark", src: "/images/projets/plantcare/settings-dark.webp"},
+      {name: "settings-light", src: "/images/projets/plantcare/settings-light.webp"},
     ],
     highlightFeatures: [
       {
@@ -83,14 +101,46 @@ const projectsListEn = [
     link: "https://github.com/Nicode611/PlantCare-WebApp",
   },
   {
+    id: 1,
+    title: "Hello Voisins",
+    catchline: "Social network application that facilitates communication between neighbors",
+    description: "Hello Voisins was developed as my final year project. It’s a data management application designed to facilitate connections between neighbors through geolocation. While the project was completed in a basic yet functional version, it allowed me to explore various technologies and strengthen my skills in both application development and project management.",
+    image: [
+      {name: "landing", src: "/images/projets/hello-voisins/hello.png"},
+      {name: "proximity-chat-desktop", src: "/images/projets/hello-voisins/proximity-chat-desktop.webp"},
+      {name: "notifs-mobile", src: "/images/projets/hello-voisins/notifs-mobile.webp"},
+      {name: "map-mobile", src: "/images/projets/hello-voisins/map-mobile.webp"},
+      {name: "groups-mobile", src: "/images/projets/hello-voisins/groups-mobile.webp"},
+    ],
+    highlightFeatures: [
+      {title: "Communication through geolocation",
+        catchLine: "Using Google Maps API",
+        description: "This feature allows users to easily locate and contact nearby neighbors through an interactive map integrated via Google Maps API. With their consent, I simply needed to retrieve each user's position to calculate their distance using the Haversine formula."},
+      {title: "Websocket server",
+        catchLine: "Using Ratchet",
+        description: "By integrating Ratchet, a PHP websocket server, I was able to implement real-time communication between users. This technology allows sending and receiving messages instantly without reloading the page."
+      },
+      {title: "Group creation",
+        catchLine: "Database management",
+        description: "Users can create and join discussion groups. This involves dynamic data management on the database side (creation, joining, deletion), with personalized content display based on membership to one or more groups."
+      },
+    ],
+    technos: [
+      { name: "HTML / CSS", icon: "/images/logos/html.svg" },
+      { name: "JS", icon: "/images/logos/js.svg" },
+      { name: "PHP", icon: "/images/logos/php.svg" },
+      { name: "SQL", icon: "/images/logos/sql.svg" },
+    ],
+    link: "https://github.com/Nicode611/Hello-voisins-WebApp",
+    
+  },
+  {
     id: 3,
     title: "TO DO list",
     catchline: "Small project creating a to-do list.",
     description: "This project allowed me to practice building applications using create-react-app. I also implemented global state management with Redux, which helped me strengthen my understanding of the library.",
     image: [
         {name: "image1", src: "/images/projets/to-do-list/todo.png"},
-        {name: "image2", src: "/images/mb.webp"},
-        {name: "image2", src: "/images/mb.webp"},
     ],
     highlightFeatures: [
       {title: "State Management",
@@ -116,9 +166,11 @@ const projectsListEn = [
     catchline: "Various websites created via WordPress for professionals.",
     description: "As a freelance developer, I worked with several clients, including Minute Beauté and EM Sellerie. While building websites with WordPress and Elementor doesn’t require advanced technical skills, the experience helped me improve key aspects such as design, client communication, and project management in a professional context.",
     image: [
-        {name: "mb2", src: "/images/projets/wordpress/mb.png"},
-        {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
-        {name: "sellerie1", src: "/images/projets/wordpress/sellerie1.png"},
+      {name: "mb-landing", src: "/images/projets/wordpress/mb-landing.webp"},
+      {name: "mb-contact", src: "/images/projets/wordpress/mb-contact.webp"},
+      {name: "mb-tarifs", src: "/images/projets/wordpress/mb-tarifs.webp"},
+      {name: "em-real", src: "/images/projets/wordpress/em-real.webp"},
+      {name: "em-renov", src: "/images/projets/wordpress/em-renov.webp"},
     ],
     highlightFeatures: [
       {
@@ -170,8 +222,6 @@ const projectsListEn = [
         description: "I’ve had the opportunity to work on a variety of projects, ranging from React Native app development to Shopify integrations. I’ve also contributed to open source projects on GitHub, which allowed me to explore different aspects of web and mobile development while strengthening my technical skills and my ability to adapt to various work environments.",
     image: [
         {name: "Various", src: "/images/projets/divers/divers.png"},
-        {name: "sellerie2", src: "/images/projets/wordpress/sellerie2.png"},
-        {name: "sellerie1", src: "/images/projets/wordpress/sellerie1.png"},
     ],
     highlightFeatures: [
       {title: "Project Management",
