@@ -57,8 +57,8 @@ export default function ContactSection() {
                     <FontAwesomeIcon icon={faWhatsapp} size='xl' className='text-light' />
                   </div>
                   <div>
-                    <h4 className="font-bold">Whatsapp</h4>
-                    <p className="">0428358898</p>
+                    <h4 className="font-bold">{lang === 'fr' ? "Téléphone" : "Phone number"}</h4>
+                    <p className="">0627201444</p>
                   </div>
                 </div>
               </div>
