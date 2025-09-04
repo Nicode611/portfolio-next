@@ -4,6 +4,7 @@ import selectedProjectReducer from './selectedProjectSlice';
 import selectedFeatureReducer from './selectedFeatureSlice';
 import selectedLanguageReducer from './selectedLanguageSlice';
 import galleryReducer from './gallerySlice';
+import cookieConsentReducer from './cookieConsentSlice';
 
 
 const store = configureStore({
@@ -12,6 +13,7 @@ const store = configureStore({
     selectedFeature: selectedFeatureReducer,
     selectedLanguage: selectedLanguageReducer,
     gallery: galleryReducer,
+    cookieConsent: cookieConsentReducer,
   },
 });
 

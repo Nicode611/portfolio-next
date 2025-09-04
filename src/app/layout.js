@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../lib/fontawesome' 
 import ReduxProviderWrapper from '../redux/ReduxProviderWrapper';
+import CookieBanner from '../components/CookieBanner';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'Nicolas Guigay - Développeur Fullstack | Portfolio',
@@ -27,7 +29,7 @@ export const metadata = {
     siteName: 'Portfolio Nicolas Guigay',
     images: [
       {
-        url: '/images/profile-picture.webp',
+        url: '/images/landing-page.png',
         width: 1200,
         height: 630,
         alt: 'Nicolas Guigay - Développeur Fullstack',
@@ -40,7 +42,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Nicolas Guigay - Développeur Fullstack | Portfolio',
     description: 'Portfolio de Nicolas Guigay, développeur fullstack spécialisé en React, Next.js, PHP et Node.js.',
-    images: ['/images/profile-picture.webp'],
+    images: ['/images/landing-page.png'],
   },
   robots: {
     index: true,
@@ -59,9 +61,29 @@ export default function RootLayout({ children }) {
   return (
       <html lang="fr" suppressHydrationWarning>
           <body className='overflow-x-hidden'>
+              {/* Google tag (gtag.js) */}
+              <Script
+                src="https://www.googletagmanager.com/gtag/js?id=G-EY86DEPH4M"
+                strategy="afterInteractive"
+              />
+              <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  
+                  // Configuration initiale avec consentement par défaut refusé
+                  gtag('consent', 'default', {
+                    'analytics_storage': 'denied'
+                  });
+                  
+                  gtag('config', 'G-EY86DEPH4M');
+                `}
+              </Script>
               <ReduxProviderWrapper>
                   <Header />
                   <main>{children}</main>
+                  <CookieBanner />
               </ReduxProviderWrapper>
           </body>
       </html>
