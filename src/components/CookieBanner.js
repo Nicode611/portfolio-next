@@ -129,7 +129,7 @@ const CookieBanner = () => {
       
       {/* Bannière initiale */}
       {isVisible && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-card border-t border-border shadow-lg">
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-t-primary border-border shadow-lg">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div className="flex-1">
@@ -151,13 +151,13 @@ const CookieBanner = () => {
                 </button>
                 <button
                   onClick={handleDecline}
-                  className="px-4 py-2 text-sm font-medium text-foreground bg-secondary border border-border rounded-md hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
+                  className="px-4 py-2 text-sm text-white font-medium text-foreground bg-primaryLight border border-border rounded-md hover:bg-primaryLight/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
                 >
                   Refuser
                 </button>
                 <button
                   onClick={handleAccept}
-                  className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary border border-transparent rounded-md hover:bg-primaryLight focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
+                  className="px-4 py-2 text-sm text-white font-medium text-primary-foreground bg-primary border border-transparent rounded-md hover:bg-primaryLight focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
                 >
                   Accepter
                 </button>
