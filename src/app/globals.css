@@ -242,3 +242,75 @@
         transform: translateY(-120vh) scale(0);
     }
 }
+
+/* Animation d'entrée fade-in-up */
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* Animations de flottement avec rotations spécifiques */
+@keyframes float-header-1 {
+    0%, 100% {
+        transform: translateY(0px) rotate(-5deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(-4deg);
+    }
+    50% {
+        transform: translateY(-4px) rotate(-6deg);
+    }
+    75% {
+        transform: translateY(-12px) rotate(-3deg);
+    }
+}
+
+@keyframes float-header-2 {
+    0%, 100% {
+        transform: translateY(0px) rotate(15deg);
+    }
+    33% {
+        transform: translateY(-6px) rotate(14deg);
+    }
+    66% {
+        transform: translateY(-10px) rotate(16deg);
+    }
+}
+
+@keyframes float-contact-1 {
+    0%, 100% {
+        transform: translateY(0px) rotate(50deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(49deg);
+    }
+    50% {
+        transform: translateY(-4px) rotate(51deg);
+    }
+    75% {
+        transform: translateY(-12px) rotate(48deg);
+    }
+}
+
+@keyframes float-contact-2 {
+    0%, 100% {
+        transform: translateY(0px) rotate(-45deg);
+    }
+    33% {
+        transform: translateY(-6px) rotate(-44deg);
+    }
+    66% {
+        transform: translateY(-10px) rotate(-46deg);
+    }
+}

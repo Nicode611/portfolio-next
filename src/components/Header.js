@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLanguage } from '../redux/selectedLanguageSlice';
 
@@ -15,6 +15,13 @@ export default function Header() {
   const dispatch = useDispatch();
   const lang = useSelector((state) => state.selectedLanguage.language);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleClick = (section) => {
       const selectedSection = document.getElementById(section);
@@ -24,20 +31,45 @@ export default function Header() {
   }
 
   return (
-    <header className="overflow-hidden bg-primary py-4 px-6 shadow-md text-light">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="relative overflow-hidden bg-primary py-4 px-6 text-light"
+            style={{
+              boxShadow: 'inset 0 2px 8px rgba(0, 0, 0, 0.41), 0 4px 8px rgba(0, 0, 0, 0.2)'
+            }}>
+      
+      {/* Rectangles animés au scroll */}
+      <div className="absolute inset-0 z-0">
+        {/* Rectangle 1 - Bas droite */}
+        <div className="absolute h-[10rem] w-[80%] bg-primaryLight bottom-[-9rem] right-[-10rem] z-0"
+            style={{
+              transform: `translateY(${scrollY * 0.3}px) translateX(${scrollY * 0.15}px)`,
+              boxShadow: '-5px -5px 25px rgba(0, 0, 0, 0.14)',
+              animation: 'float-header-1 12s ease-in-out infinite'
+            }}
+        />
+        
+        {/* Rectangle 2 - Bas gauche */}
+        <div className="absolute h-[10rem] w-[60%] bg-[#0d3e53] bottom-[-5rem] left-[-3rem] z-0"
+            style={{
+              transform: `translateY(${scrollY * -0.25}px) translateX(${scrollY * -0.12}px)`,
+              boxShadow: '-3px -3px 30px rgba(0, 0, 0, 0.42)',
+              animation: 'float-header-2 15s ease-in-out infinite'
+            }}
+        />
+        
+      </div>
+      <div className="container mx-auto flex justify-between items-center z-20">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Avatar className="size-14 border-2 border-white">
               <AvatarImage src="/images/profile-picture.webp" alt="Nicolas Guigay" className="object-cover" />
               <AvatarFallback>NG</AvatarFallback>
             </Avatar>
-            <p className="ml-3 text-xs text-light max-w-[150px]">
+            <p className="ml-3 text-xs text-light max-w-[150px] z-20">
               <span>Nicolas GUIGAY</span><br/>
               Web developper
             </p>
           </Link>
-          <div className='flex items-center ml-5 space-x-3'>
+          <div className='flex items-center ml-5 space-x-3 z-20'>
             <Link href="https://github.com/Nicode611">
               <FontAwesomeIcon size='2xl' icon={faGithub} style={{ color: '#ffffff' }} />
             </Link>
@@ -45,8 +77,8 @@ export default function Header() {
               <FontAwesomeIcon size="2xl" icon={faLinkedin} style={{ color: '#ffffff' }} />
             </Link>
           </div>
-          <Link href='/CV.pdf' target='_blank' rel='noopener noreferrer' className="ml-5">
-            <button className='bg-primaryDark border-[1px] border-white text-white text-sm px-4 py-2 rounded-md hover:bg-primaryLight  transition duration-300'>
+          <Link href='/CV.pdf' target='_blank' rel='noopener noreferrer' className="ml-5 z-20">
+            <button className='bg-primaryDark border-[1px] border-white text-white text-sm px-4 py-2 rounded-md hover:bg-primaryLight  transition duration-300 z-20'>
               {lang === 'fr' ? 'Mon CV' : 'My Resume'}
             </button>
           </Link>

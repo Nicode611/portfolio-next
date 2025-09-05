@@ -168,9 +168,9 @@ const projectsList = [
   },
   {
     id: 4,
-    title: "Projets wordpress",
-    catchline: "Divers sites web crées via Wordpress a l'intention de professionels.",
-    description: "J’ai eu l’occasion de travailler en tant que freelance pour plusieurs clients, dont Minute Beauté et EM Sellerie. Bien que la création de sites WordPress via Elementor ne représente pas un défi technique majeur, cette expérience m’a permis de progresser sur des aspects essentiels tels que la conception, la communication client et la gestion de projet dans un cadre professionnel. ",
+    title: "Projets freelance",
+    catchline: "Divers sites web totalement personalisés à l'intention de professionels.",
+    description: "J’ai travaillé en freelance pour plusieurs clients, notamment Minute Beauté et EM Sellerie. J’ai ainsi créé des sites sous WordPress avec Elementor, mais aussi conçu et développé des projets plus techniques avec Next.js. Ces expériences m’ont permis de gérer l’ensemble des aspects d’un projet selon différentes méthodes, tout en renforçant mes compétences en conception, communication client et gestion de projet dans un cadre professionnel.",
     image: [
         {name: "mb-landing", src: "/images/projets/wordpress/mb-landing.webp"},
         {name: "mb-contact", src: "/images/projets/wordpress/mb-contact.webp"},
@@ -212,6 +212,7 @@ const projectsList = [
     ],
     technos: [
       { name: "Wordpress", icon: "/images/logos/wordpress.svg" },
+      { name: "Next.js", icon: "/images/logos/next.svg" },
       { name: "Trello", icon: "/images/logos/trello.svg" },
       { name: "Figma", icon: "/images/logos/figma.svg" },
       
@@ -219,6 +220,8 @@ const projectsList = [
     link: [
       {name: "Minute Beauté", src: "https://minutebeaute.fr/"},
       {name: "EM Sellerie", src: "https://em-sellerie.fr"},
+      {name: "Meilleure Agence", src: "https://www.meilleure-agence.be/"},
+
     ]
   },
   {

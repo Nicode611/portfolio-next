@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
@@ -10,12 +10,19 @@ import { setLanguage } from '@/redux/selectedLanguageSlice';
 
 export default function ContactSection() {
   const lang = useSelector((state) => state.selectedLanguage.language);
+  const [scrollY, setScrollY] = useState(0);
   
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,8 +30,26 @@ export default function ContactSection() {
   };
   
   return (
-    <section id="contact" className="overflow-hidden section px-10 bg-primary text-light ">
-      <div className="container mx-auto">
+    <section id="contact" className="overflow-hidden section px-10 bg-primary text-light relative">
+      {/* Rectangles animés au scroll */}
+      <div className="absolute inset-0 z-0">
+                 {/* Rectangle 2 - Bas droite */}
+         <div className="absolute h-[70rem] w-[70rem] bg-primaryLight top-[-70rem] md:top-[-60rem] left-[-60rem] md:left-[-60rem] lg:left-[-30rem]  z-0"
+             style={{
+               transform: `translateY(${scrollY * 0.18}px) translateX(${scrollY * 0.1}px) rotate(50deg)`,
+               boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.14)'
+             }}
+         />
+         {/* Rectangle 1 - Haut gauche */}
+         <div className="absolute h-[100rem] w-[70rem] bg-[#0d3e53] top-[15rem] md:top-[0px] left-[-40rem] md:left-[-30rem] lg:left-[-200px] z-0"
+             style={{
+               transform: `translateY(${scrollY * -0.15}px) translateX(${scrollY * -0.08}px) rotate(-45deg)`,
+               boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.23)'
+             }}
+         />
+      </div>
+      
+      <div className="container mx-auto relative z-10">
         
         <div className="flex flex-col items-center md:items-start w-full md:flex-row gap-12">
           <div className='flex flex-col items-center md:items-start w-full md:w-3/5 md:py-16'>

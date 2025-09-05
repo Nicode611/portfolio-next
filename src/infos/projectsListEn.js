@@ -162,9 +162,9 @@ const projectsListEn = [
   },
   {
     id: 4,
-    title: "WordPress Projects",
+    title: "Freelance Projects",
     catchline: "Various websites created via WordPress for professionals.",
-    description: "As a freelance developer, I worked with several clients, including Minute Beauté and EM Sellerie. While building websites with WordPress and Elementor doesn’t require advanced technical skills, the experience helped me improve key aspects such as design, client communication, and project management in a professional context.",
+    description: "I have worked as a freelance developer for several clients, including Minute Beauté and EM Sellerie. I created websites using WordPress with Elementor, but also designed and developed more technical projects with Next.js. These experiences allowed me to manage all aspects of a project through different approaches, while strengthening my skills in design, client communication, and project management in a professional environment.",
     image: [
       {name: "mb-landing", src: "/images/projets/wordpress/mb-landing.webp"},
       {name: "mb-contact", src: "/images/projets/wordpress/mb-contact.webp"},
@@ -206,6 +206,7 @@ const projectsListEn = [
     ],
     technos: [
       { name: "Wordpress", icon: "/images/logos/wordpress.svg" },
+      { name: "Next.js", icon: "/images/logos/next.svg" },
       { name: "Trello", icon: "/images/logos/trello.svg" },
       { name: "Figma", icon: "/images/logos/figma.svg" },
       
@@ -213,6 +214,7 @@ const projectsListEn = [
     link: [
       {name: "Minute Beauté", src: "https://minutebeaute.fr/"},
       {name: "EM Sellerie", src: "https://em-sellerie.fr"},
+      {name: "Meilleure Agence", src: "https://www.meilleure-agence.be/"},
     ]
   },
   {

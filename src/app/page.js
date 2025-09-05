@@ -74,7 +74,6 @@ export default function Home() {
               }}
             />
             
-            {/* Suppression de la ligne horizontale qui n'est plus nécessaire */}
 
             {/* Lower-right triangle */}
             <div

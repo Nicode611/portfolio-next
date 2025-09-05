@@ -86,8 +86,8 @@ export default function Hero() {
               <Image
                 src="/images/profile-picture.webp"
                 alt="Nicolas Guigay"
-                width={200}
-                height={200}
+                width={500}
+                height={500}
                 className=" z-10 rounded-full shadow-xl object-cover h-full max-h-[370px] min-w-[270px] max-w-[300px] w-[60%]"
               />
             </div>
