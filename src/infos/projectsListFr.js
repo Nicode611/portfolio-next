@@ -141,32 +141,6 @@ const projectsList = [
     file: "/dossier-projet-hello-voisins.pdf"
   },
   {
-    id: 3,
-    title: "TO DO list",
-    catchline: "Petit projet de création d'une to do list.",
-    description: "Ce projet m’a permis de m’exercer à la création d’applications avec create-react-app. J’en ai profité pour mettre en place une gestion d’état globale à l’aide de Redux, consolidant ainsi mes bases sur cette bibliothèque.",
-    image: [
-        {name: "image1", src: "/images/projets/to-do-list/todo.png"},
-    ],
-    highlightFeatures: [
-      {title: "Gestion de l'état",
-        catchLine: "Gestion du state via Redux",
-        description: "Grâce à Redux, j’ai centralisé l’état global de l’application pour permettre une gestion fluide et organisée des différentes tâches réparties dans chaque liste. Cela facilite la modification, l’ajout ou la suppression tout en assurant la cohérence de l’interface utilisateur."
-      },
-      {title: "Etat persistant",
-        catchLine: "Persistant state",
-        description: "J’ai intégré Redux Persist afin de conserver l’état de l’application entre les sessions. Cela signifie que les tâches restent visibles même après un rechargement ou une fermeture du navigateur, améliorant ainsi l’expérience utilisateur et la fiabilité de l’outil au quotidien."
-      },
-    ],
-    technos: [
-      { name: "React", icon: "/images/logos/react.svg" },
-      { name: "HTML / CSS", icon: "/images/logos/html.svg" },
-      { name: "Redux", icon: "/images/logos/redux.svg" },
-      
-    ],
-    link: "https://github.com/Nicode611/to-do-list-react",
-  },
-  {
     id: 4,
     title: "Projets freelance",
     catchline: "Divers sites web totalement personalisés à l'intention de professionels.",
@@ -224,6 +198,32 @@ const projectsList = [
       {name: "Meilleure Agence", src: "https://www.meilleure-agence.be/"},
 
     ]
+  },
+  {
+    id: 3,
+    title: "TO DO list",
+    catchline: "Petit projet de création d'une to do list.",
+    description: "Ce projet m’a permis de m’exercer à la création d’applications avec create-react-app. J’en ai profité pour mettre en place une gestion d’état globale à l’aide de Redux, consolidant ainsi mes bases sur cette bibliothèque.",
+    image: [
+        {name: "image1", src: "/images/projets/to-do-list/todo.png"},
+    ],
+    highlightFeatures: [
+      {title: "Gestion de l'état",
+        catchLine: "Gestion du state via Redux",
+        description: "Grâce à Redux, j’ai centralisé l’état global de l’application pour permettre une gestion fluide et organisée des différentes tâches réparties dans chaque liste. Cela facilite la modification, l’ajout ou la suppression tout en assurant la cohérence de l’interface utilisateur."
+      },
+      {title: "Etat persistant",
+        catchLine: "Persistant state",
+        description: "J’ai intégré Redux Persist afin de conserver l’état de l’application entre les sessions. Cela signifie que les tâches restent visibles même après un rechargement ou une fermeture du navigateur, améliorant ainsi l’expérience utilisateur et la fiabilité de l’outil au quotidien."
+      },
+    ],
+    technos: [
+      { name: "React", icon: "/images/logos/react.svg" },
+      { name: "HTML / CSS", icon: "/images/logos/html.svg" },
+      { name: "Redux", icon: "/images/logos/redux.svg" },
+      
+    ],
+    link: "https://github.com/Nicode611/to-do-list-react",
   },
   {
     id: 5,

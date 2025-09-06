@@ -32,6 +32,9 @@ export default function ProjectsSection() {
     const [modal, setModal] = useState(false)
     const [loaded, setLoaded] = useState(false)
     const [offset, setOffset] = useState(-1500);
+    const [carouselIndex, setCarouselIndex] = useState(0);
+    const [projectsPerPage, setProjectsPerPage] = useState(4);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
       const handleScroll = () => {
@@ -63,6 +66,57 @@ export default function ProjectsSection() {
       }
     }, [imagesArray, selectedProject.title]);
 
+    // Carousel logic
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth < 768) {
+          setProjectsPerPage(2); // Mobile: 2 projets par page
+        } else if (window.innerWidth < 1024) {
+          setProjectsPerPage(3); // Tablet: 3 projets par page
+        } else {
+          setProjectsPerPage(4); // Desktop: 4 projets par page
+        }
+      };
+      
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const currentProjects = lang === 'fr' ? projectsListFr : projectsListEn;
+    const totalPages = Math.ceil(currentProjects.length / projectsPerPage);
+    const startIndex = carouselIndex * projectsPerPage;
+    const endIndex = Math.min(startIndex + projectsPerPage, currentProjects.length);
+    const visibleProjects = currentProjects.slice(startIndex, endIndex);
+    
+    // Reset carousel index if it's beyond the total pages
+    useEffect(() => {
+      if (carouselIndex >= totalPages) {
+        setCarouselIndex(0);
+      }
+    }, [totalPages, carouselIndex]);
+
+    const nextSlide = () => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setCarouselIndex((prev) => (prev + 1) % totalPages);
+      setTimeout(() => setIsAnimating(false), 500);
+    };
+
+    const prevSlide = () => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setCarouselIndex((prev) => (prev - 1 + totalPages) % totalPages);
+      setTimeout(() => setIsAnimating(false), 500);
+    };
+
+    const goToSlide = (index) => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setCarouselIndex(index);
+      setTimeout(() => setIsAnimating(false), 500);
+    };
+
     const handleClick = (project) => {
         dispatch(setSelectedProject(project));
     };
@@ -90,7 +144,6 @@ export default function ProjectsSection() {
           <div className="flex flex-col md:flex-row gap-y-12 md:gap-y-0 md:gap-x-12 w-full h-full justify-around z-50">
   
             {/* Main project showcase */}
-              {/* Mettre animation d'apparition */}
               {imagesArray ?
               	<motion.div
                   key={selectedProject.title}
@@ -214,60 +267,101 @@ export default function ProjectsSection() {
               	</motion.div>
               : ""}
             
-            {/* Sidebar projects */}
-            <div className="grid grid-cols-2 gap-5 md:flex md:flex-col md:justify-center md:space-y-6 md:w-[35%] lg:w-[25%] p-0 md:p-4 rounded-sm ">
-              {lang === 'fr' ? (
-                projectsListFr.map((project, index) => {
-                  const activeProject = selectedProject === project;
-                  return (
-                  <div
-                    key={index}
-                    onClick={() => { handleClick(project); document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); }}
-                    className={`relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 ${activeProject ? 'scale-105' : ''} `}
+            {/* Carousel sidebar projects */}
+            <div className="md:w-[35%] lg:w-[25%] p-0 md:p-4 rounded-sm flex flex-col">
+              {/* Top navigation button */}
+              {totalPages > 1 && (
+                <div className="flex justify-center mb-3">
+                  <button
+                    onClick={prevSlide}
+                    className="p-2 rounded-full bg-primaryLight text-light hover:bg-primary transition-colors"
                   >
-                    <Image
-                      src={project.image[0]?.src}
-                      alt={project.image[0]?.name}
-                      fill
-                      objectFit='cover'
-                      objectPosition='top center'
-                      className='rounded-sm'
-                    />
-                    <div
-                      className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-sm transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
-                    >
-                      <span className="z-20 ">{project.title}</span>
-                    </div>
-                    <div className="hidden md:block absolute right-[50%] -bottom-[10px] translate-x-[50%] h-[2px] w-[20%] border-b-[3px] border-black/20 group-hover:border-black/60 rounded-full" />
-                  </div>
-                  );
-                })
-              ) : (
-                projectsListEn.map((project, index) => {
-                  const activeProject = selectedProject === project;
-                  return (
-                  <div
-                    key={index}
-                    onClick={() => { handleClick(project); document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); }}
-                    className={`relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 ${activeProject ? 'scale-105' : ''} `}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7" />
+                    </svg>
+                  </button>
+                </div>
+              )}
+
+              {/* Projects grid with animation */}
+              <div className="flex-1 overflow-hidden flex items-center justify-center">
+                <motion.div
+                  key={carouselIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    ease: "easeInOut",
+                    staggerChildren: 0.1
+                  }}
+                  className={`w-full grid gap-5 ${
+                    projectsPerPage === 2 ? 'grid-cols-2' : 
+                    projectsPerPage === 3 ? 'grid-cols-3' : 
+                    visibleProjects.length <= 2 ? 'grid-cols-2' :
+                    'grid-cols-2 md:grid-cols-2 lg:grid-cols-2'
+                  } md:flex md:flex-col md:space-y-6 md:justify-center`}
+                >
+                  {visibleProjects.map((project, index) => {
+                    const activeProject = selectedProject === project;
+                    return (
+                      <motion.div
+                        key={project.title}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.1 }}
+                        onClick={() => { handleClick(project); document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); }}
+                        className={`relative flex flex-col items-center group hover:cursor-pointer shadow-md bg-gray-200 h-24 w-full rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-105 ${activeProject ? 'scale-105' : ''} ${isAnimating ? 'pointer-events-none' : ''}`}
+                      >
+                        <Image
+                          src={project.image[0]?.src}
+                          alt={project.image[0]?.name}
+                          fill
+                          objectFit='cover'
+                          objectPosition='top center'
+                          className='rounded-sm'
+                        />
+                        <div
+                          className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-sm transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
+                        >
+                          <span className="z-20 text-xs md:text-sm">{project.title}</span>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
+              </div>
+
+              {/* Bottom navigation button and indicators */}
+              {totalPages > 1 && (
+                <div className="flex flex-col items-center mt-3 space-y-2">
+                  <button
+                    onClick={nextSlide}
+                    className="p-2 rounded-full bg-primaryLight text-light hover:bg-primary transition-colors"
                   >
-                    <Image
-                      src={project.image[0]?.src}
-                      alt={project.image[0]?.name}
-                      fill
-                      objectFit='cover'
-                      objectPosition='top center'
-                      className='rounded-sm'
-                    />
-                    <div
-                      className={`absolute bottom-0 left-0 right-0 p-2 rounded-b-sm transition-colors duration-300 ease-in-out ${activeProject ? 'bg-[#508aa1df] text-light' : 'bg-white text-dark'} group-hover:bg-[#508aa1df] group-hover:text-light`}
-                    >
-                      <span className="z-20 ">{project.title}</span>
-                    </div>
-                    <div className="hidden md:block absolute right-[50%] -bottom-[10px] translate-x-[50%] h-[2px] w-[20%] border-b-[3px] border-black/20 group-hover:border-black/60 rounded-full" />
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {/* Page indicators */}
+                  <div className="flex space-x-2">
+                    {Array.from({ length: totalPages }).map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => goToSlide(index)}
+                        className={`w-2 h-2 rounded-full transition-colors ${
+                          index === carouselIndex ? 'bg-primary' : 'bg-gray-300'
+                        }`}
+                      />
+                    ))}
                   </div>
-                  );
-                })
+                  
+                  {/* Page indicator text */}
+                  <div className="text-center text-sm text-gray-500">
+                    {carouselIndex + 1} / {totalPages}
+                  </div>
+                </div>
               )}
             </div>
           </div>
