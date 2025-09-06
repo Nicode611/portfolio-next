@@ -39,7 +39,7 @@ export default function Header() {
       {/* Rectangles animés au scroll */}
       <div className="absolute inset-0 z-0">
         {/* Rectangle 1 - Bas droite */}
-        <div className="absolute h-[10rem] w-[80%] bg-primaryLight bottom-[-9rem] right-[-10rem] z-0"
+        <div className="absolute h-[10rem] w-[60rem] md:h-[10rem] md:w-[80%] bg-primaryLight bottom-[-9rem] right-[-8rem] md:bottom-[-9rem] md:right-[-10rem] z-0"
             style={{
               transform: `translateY(${scrollY * 0.3}px) translateX(${scrollY * 0.15}px)`,
               boxShadow: '-5px -5px 25px rgba(0, 0, 0, 0.14)',
@@ -48,7 +48,7 @@ export default function Header() {
         />
         
         {/* Rectangle 2 - Bas gauche */}
-        <div className="absolute h-[10rem] w-[60%] bg-[#0d3e53] bottom-[-5rem] left-[-3rem] z-0"
+        <div className="absolute h-[20rem] w-[60rem] bottom-[-15rem] left-[-30rem] bg-[#0d3e53] md:bottom-[-15rem] md:left-[-11rem] z-0"
             style={{
               transform: `translateY(${scrollY * -0.25}px) translateX(${scrollY * -0.12}px)`,
               boxShadow: '-3px -3px 30px rgba(0, 0, 0, 0.42)',
