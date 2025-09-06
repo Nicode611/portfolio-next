@@ -169,6 +169,7 @@ const projectsListEn = [
       {name: "mb-landing", src: "/images/projets/wordpress/mb-landing.webp"},
       {name: "mb-contact", src: "/images/projets/wordpress/mb-contact.webp"},
       {name: "mb-tarifs", src: "/images/projets/wordpress/mb-tarifs.webp"},
+      {name: "ma-landing", src: "/images/projets/wordpress/ma-landing.webp"},
       {name: "em-real", src: "/images/projets/wordpress/em-real.webp"},
       {name: "em-renov", src: "/images/projets/wordpress/em-renov.webp"},
     ],
