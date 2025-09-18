@@ -1,6 +1,6 @@
 const projectsListEn = [
   {
-    id: 6,
+    id: 1,
     title: "Easy Apply",
     catchline: "A job aggregator to easily apply from one place",
     description: "I developed this application using Next.js for the frontend, connected to a Puppeteer scraper via a Node/Express API, to automatically gather job offers from multiple sources and simplify the application process.",
@@ -43,10 +43,56 @@ const projectsListEn = [
       { name: "Puppeteer", icon: "/images/logos/puppeteer.svg" },
       { name: "Express", icon: "/images/logos/node.svg" }
     ],
-    link: "https://github.com/Nicode611/easy-apply-app.git"
+    link: "https://github.com/Nicode611/easy-apply-app.git",
+    type: "github"
   },
   {
     id: 2,
+    title: "Xpert-Immo",
+    catchline: "Next.js website for a real estate company",
+    description: "As part of a project for a real estate expert office based in Belgium, I designed and developed a custom website with Next.js. This complete project includes a dedicated back panel, offering the client simple and efficient content management.",
+    image: [
+        {name: "xi-landing", src: "/images/projets/xpert-immo/xi-landing.webp"},
+        {name: "xi-contact", src: "/images/projets/xpert-immo/xi-contact.webp"},
+        {name: "xi-presta", src: "/images/projets/xpert-immo/xi-presta.webp"},
+        {name: "xi-modal", src: "/images/projets/xpert-immo/xi-modal.webp"},
+        {name: "xi-downloads", src: "/images/projets/xpert-immo/xi-downloads.webp"},
+        {name: "xi-back-panel", src: "/images/projets/xpert-immo/xi-back-panel.webp"},
+        {name: "xi-footer", src: "/images/projets/xpert-immo/xi-footer.webp"},
+    ],
+    highlightFeatures: [
+      {
+        title: "Back panel",
+        catchLine: "Content management",
+        description: "I designed a back panel that allows content modification through code stored in JSON files, imported directly into the site's components."
+      },
+      {
+        title: "Authentication system",
+        catchLine: "JWT token authentication",
+        description: "Access to the back panel is secured by an authentication system based on JWT tokens. Credentials are defined and stored in environment variables, avoiding database management and ensuring simple and secure operation."
+      },
+      {
+        title: "Modern interface",
+        catchLine: "Following client guidelines",
+        description: "I developed a modern and responsive interface in accordance with client guidelines. They provided some design ideas, which I used as inspiration to create an interface that meets modern design standards."
+      },
+      {
+        title: "Contact form",
+        catchLine: "Email sending management",
+        description: "I developed a contact form that allows sending emails to the client. I used Resend, which enabled me, through my client's domain DNS records, to send emails via their personal email address."
+      },
+    ],
+    technos: [
+      { name: "Next.JS", icon: "/images/logos/next.svg" },
+      { name: "Tailwind", icon: "/images/logos/tailwind.svg" },
+      { name: "Figma", icon: "/images/logos/figma.svg" },
+      { name: "Resend", icon: "/images/logos/resend.svg" },
+    ],
+    link: "https://xpert-immo.vercel.app/",
+    type: "website"
+  },
+  {
+    id: 3,
     title: "PlantCare",
     catchline: "Next.JS application to manage the health of your plants",
     description: "This project was created to deepen my knowledge of Next.js. It gave me the opportunity to explore several core features such as API routes, client-side and server-side rendering (CSR/SSR). I also integrated OAuth authentication using Auth.js and its provider system, along with a REST API connected to a database through the Prisma ORM.",
@@ -99,12 +145,48 @@ const projectsListEn = [
       { name: "ShadCN", icon: "/images/logos/shadcn.svg" },
     ],
     link: "https://github.com/Nicode611/PlantCare-WebApp",
+    type: "github"
   },
   {
-    id: 1,
+    id: 4,
+    title: "Minute Beauté",
+    catchline: "WordPress website for a home hairdresser",
+    description: "I designed and developed a website for Wendy, a home hairdresser in the Basque Country, as part of my freelance activity. It's a custom website created with WordPress, allowing the hairdresser to present her services.",
+    image: [
+      {name: "mb-landing", src: "/images/projets/minute-beaute/mb-landing.webp"},
+      {name: "mb-contact", src: "/images/projets/minute-beaute/mb-contact.webp"},
+      {name: "mb-tarifs", src: "/images/projets/minute-beaute/mb-tarifs.webp"},
+    ],
+    highlightFeatures: [
+      {
+        title: "Caching",
+        catchLine: "Performance optimization",
+        description: "To improve the overall performance of the site, I implemented an adapted caching system. This significantly reduced loading times, optimized user experience, and relieved the servers."
+      },
+      {
+        title: "Extensions",
+        catchLine: "Choosing different extensions",
+        description: "I selected, installed, and configured specific extensions for the project's needs: enhanced security, contact forms, design optimization, or automatic backups. This approach allowed me to customize the site without unnecessarily weighing down the interface."
+      },
+      {
+        title: "SEO",
+        catchLine: "Search engine optimization",
+        description: "I optimized the site's natural referencing by configuring extensions like Yoast SEO, properly structuring tags, titles, keywords, and generating sitemaps. These actions improved its visibility on Google."
+      },
+    ],
+    technos: [
+      { name: "Wordpress", icon: "/images/logos/wordpress.svg" },
+      { name: "Trello", icon: "/images/logos/trello.svg" },
+      { name: "Figma", icon: "/images/logos/figma.svg" },
+    ],
+    link: "https://minutebeaute.fr/",
+    type: "website"
+  },
+  {
+    id: 5,
     title: "Hello Voisins",
     catchline: "Social network application that facilitates communication between neighbors",
-    description: "Hello Voisins was developed as my final year project. It’s a data management application designed to facilitate connections between neighbors through geolocation. While the project was completed in a basic yet functional version, it allowed me to explore various technologies and strengthen my skills in both application development and project management.",
+    description: "Hello Voisins was developed as my final year project. It's a data management application designed to facilitate connections between neighbors through geolocation. While the project was completed in a basic yet functional version, it allowed me to explore various technologies and strengthen my skills in both application development and project management.",
     image: [
       {name: "landing", src: "/images/projets/hello-voisins/hello.png"},
       {name: "proximity-chat-desktop", src: "/images/projets/hello-voisins/proximity-chat-desktop.webp"},
@@ -132,68 +214,79 @@ const projectsListEn = [
       { name: "SQL", icon: "/images/logos/sql.svg" },
     ],
     link: "https://github.com/Nicode611/Hello-voisins-WebApp",
-    
+    file: "/dossier-projet-hello-voisins.pdf",
+    type: "github"
   },
   {
-    id: 4,
-    title: "Freelance Projects",
-    catchline: "Various websites created via WordPress for professionals.",
-    description: "I have worked as a freelance developer for several clients, including Minute Beauté and EM Sellerie. I created websites using WordPress with Elementor, but also designed and developed more technical projects with Next.js. These experiences allowed me to manage all aspects of a project through different approaches, while strengthening my skills in design, client communication, and project management in a professional environment.",
+    id: 6,
+    title: "EM Sellerie",
+    catchline: "WordPress website for a saddlery company",
+    description: "As part of my freelance activity, I had the opportunity to design a small showcase website to display the company's work.",
     image: [
-      {name: "mb-landing", src: "/images/projets/wordpress/mb-landing.webp"},
-      {name: "mb-contact", src: "/images/projets/wordpress/mb-contact.webp"},
-      {name: "mb-tarifs", src: "/images/projets/wordpress/mb-tarifs.webp"},
-      {name: "ma-landing", src: "/images/projets/wordpress/ma-landing.webp"},
-      {name: "em-real", src: "/images/projets/wordpress/em-real.webp"},
-      {name: "em-renov", src: "/images/projets/wordpress/em-renov.webp"},
+      {name: "em-real", src: "/images/projets/em-sellerie/em-real.webp"},
+      {name: "em-renov", src: "/images/projets/em-sellerie/em-renov.webp"},
     ],
     highlightFeatures: [
       {
-        title: "Caching",
-        catchLine: "Performance optimization",
-        description: "To improve the overall performance of sites, I set up adapted caching systems. This significantly reduced loading times, optimized user experience, and relieved the servers."
-      },
-      {
-        title: "Extensions",
-        catchLine: "Choosing different extensions",
-        description: "I selected, installed, and configured specific extensions for each project's needs: enhanced security, contact forms, design optimization, or automatic backups. This approach allowed me to customize each site without unnecessarily weighing down the interface."
-      },
-      {
-        title: "Adapting a project",
+        title: "Adapting the project",
         catchLine: "Adapting to client's choices",
-        description: "I worked closely with clients to adapt the design, content, and functionality of each site to their activity. This involves active listening, proposing suitable solutions, and in-depth customization using Elementor and other tools."
+        description: "I worked closely with clients to adapt the design, content, and functionality of the site to their activity. This involves active listening, proposing suitable solutions, and in-depth customization using Elementor and other tools."
       },
       {
         title: "Responsive",
         catchLine: "Adapting to different screen sizes",
-        description: "Thanks to Elementor, I ensured each site was perfectly responsive, with consistent rendering on mobile, tablet, and computer. This allows for optimal navigation, regardless of the device used by visitors."
+        description: "Thanks to Elementor, I ensured the site was perfectly responsive, with consistent rendering on mobile, tablet, and computer. This allows for optimal navigation, regardless of the device used by visitors."
       },
       {
         title: "Security",
-        catchLine: "Implemented defenses",
+        catchLine: "Implemented security",
         description: "Securing a WordPress site is essential. Having already experienced mass attacks, I had to implement plugins like WordFence, activate two-factor authentication, and apply best practices (regular updates, limiting login attempts, etc.)."
-      },
-      {
-        title: "SEO",
-        catchLine: "Search engine optimization",
-        description: "I optimized the natural referencing of sites by configuring extensions like Yoast SEO, properly structuring tags, titles, keywords, and generating sitemaps. These actions improved their visibility on Google."
       },
     ],
     technos: [
       { name: "Wordpress", icon: "/images/logos/wordpress.svg" },
+      { name: "Trello", icon: "/images/logos/trello.svg" },
+      { name: "Figma", icon: "/images/logos/figma.svg" },
+    ],
+    link: "https://em-sellerie.fr",
+    type: "website"
+  },
+  {
+    id: 7,
+    title: "Meilleure Agence",
+    catchline: "Real estate agency comparison website",
+    description: "As part of my freelance activity, I designed this website that allows users to compare real estate agencies for their real estate projects.",
+    image: [
+      {name: "ma-landing", src: "/images/projets/meilleure-agence/ma-landing.webp"},
+    ],
+    highlightFeatures: [
+      {
+        title: "Email templates",
+        catchLine: "Email design",
+        description: "I designed an email template that allows receiving stylized contact requests from users."
+      },
+      {
+        title: "Advanced contact form",
+        catchLine: "Modularity",
+        description: "To make the contact form more flexible, I used the modularity provided by a JSON file to store the form content."
+      },
+      {
+        title: "SEO",
+        catchLine: "Search engine optimization",
+        description: "I optimized the site's natural referencing by configuring meta tags, titles, descriptions, and keywords. I also used Google Analytics to track the site's performance."
+      },
+    ],
+    technos: [
       { name: "Next.js", icon: "/images/logos/next.svg" },
       { name: "Trello", icon: "/images/logos/trello.svg" },
       { name: "Figma", icon: "/images/logos/figma.svg" },
-      
+      { name: "Resend", icon: "/images/logos/resend.svg" },
     ],
-    link: [
-      {name: "Minute Beauté", src: "https://minutebeaute.fr/"},
-      {name: "EM Sellerie", src: "https://em-sellerie.fr"},
-      {name: "Meilleure Agence", src: "https://www.meilleure-agence.be/"},
-    ]
+    link: "https://www.meilleure-agence.be/",
+    type: "website"
   },
   {
-    id: 3,
+    id: 8,
     title: "TO DO list",
     catchline: "Small project creating a to-do list.",
     description: "This project allowed me to practice building applications using create-react-app. I also implemented global state management with Redux, which helped me strengthen my understanding of the library.",
@@ -217,13 +310,13 @@ const projectsListEn = [
       
     ],
     link: "https://github.com/Nicode611/to-do-list-react",
+    type: "github"
   },
-  
   {
-    id: 5,
+    id: 9,
     title: "Various Projects",
     catchline: "Various projects, API, React Native, Shopify, ongoing projects.",
-        description: "I’ve had the opportunity to work on a variety of projects, ranging from React Native app development to Shopify integrations. I’ve also contributed to open source projects on GitHub, which allowed me to explore different aspects of web and mobile development while strengthening my technical skills and my ability to adapt to various work environments.",
+    description: "I've had the opportunity to work on a variety of projects, ranging from React Native app development to Shopify integrations. I've also contributed to open source projects on GitHub, which allowed me to explore different aspects of web and mobile development while strengthening my technical skills and my ability to adapt to various work environments.",
     image: [
         {name: "Various", src: "/images/projets/divers/divers.png"},
     ],
@@ -257,8 +350,8 @@ const projectsListEn = [
       
     ],
     link: "",
+    type: ""
   }
-  
 ]
 
 export default projectsListEn;

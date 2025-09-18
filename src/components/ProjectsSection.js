@@ -180,8 +180,8 @@ export default function ProjectsSection() {
                         </div>
                     </div>
   		            <div className="flex flex-col w-full space-y-4 mt-6 pt-3 p-6">
-  		              <h3 className="text-[3rem] text-left font-semibold mb-2 ml-5 text-primaryDark">{selectedProject.title}</h3>
-  		              <p className="text-gray-500 text-left md:text-center text-sm md:text-md pb-5">
+  		              <h3 className="text-[3rem] text-center font-semibold mb-2 ml-5 text-primaryDark">{selectedProject.title}</h3>
+  		              <p className="text-gray-500 text-left md:text-left text-sm md:text-md pb-5">
   		                {selectedProject.description}
   		              </p>
 
@@ -254,7 +254,9 @@ export default function ProjectsSection() {
                         ) : selectedProject.link ? (
                           <Link href={selectedProject.link} target='_blank'>
                             <button className='text-sm px-3 py-1 text-light whitespace-nowrap border-[2px] border-primary bg-primary rounded-sm hover:bg-primaryLight hover:border-primaryLight transition-all duration-300 ease-in-out'>
-                              <FontAwesomeIcon size='lg' icon={faGithub} style={{ color: '#ffffff', paddingRight: '5px' }} />
+                              {selectedProject.type === "github" ? (
+                                <FontAwesomeIcon size='lg' icon={faGithub} style={{ color: '#ffffff', paddingRight: '5px' }} />
+                              ) : ("")}
                               {lang === 'fr' ? "Lien du projet" : "Project link"}
                             </button>
                           </Link>

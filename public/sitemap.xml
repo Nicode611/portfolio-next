@@ -3,7 +3,7 @@
   <!-- Page d'accueil -->
   <url>
     <loc>https://www.nicolas-guigay.com/</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- Section À propos (ancrage) -->
   <url>
     <loc>https://www.nicolas-guigay.com/#about</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -19,7 +19,7 @@
   <!-- Section Projets (ancrage) -->
   <url>
     <loc>https://www.nicolas-guigay.com/#projects</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -27,7 +27,7 @@
   <!-- Section Contact (ancrage) -->
   <url>
     <loc>https://www.nicolas-guigay.com/#contact</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -35,7 +35,7 @@
   <!-- CV -->
   <url>
     <loc>https://www.nicolas-guigay.com/CV.pdf</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -43,7 +43,7 @@
   <!-- Dossier projet Hello Voisins -->
   <url>
     <loc>https://www.nicolas-guigay.com/dossier-projet-hello-voisins.pdf</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2025-09-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
