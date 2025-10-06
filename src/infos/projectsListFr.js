@@ -94,7 +94,7 @@ const projectsList = [
       { name: "Figma", icon: "/images/logos/figma.svg" },
       { name: "Resend", icon: "/images/logos/resend.svg" },
     ],
-    link: "https://xpert-immo.vercel.app/",
+    link: "https://xpert.immo",
     type: "website"
   },
   {
