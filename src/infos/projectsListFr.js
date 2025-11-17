@@ -260,7 +260,7 @@ const projectsList = [
   {
     id: 7,
     title: "Meilleure Agence",
-    catchline: "Site web de comparatif d'agences immobilières",
+    catchline: "Site web de comparatif d'agences immobilières en Belgique",
     description: "Dans le cadre de mon activitée freelance, j'ai concu ce site web qui permet aux utilisateurs de comparer les agences immobilières pour leurs projets immobiliers.",
     image: [
         {name: "ma-landing", src: "/images/projets/meilleure-agence/ma-landing.webp"},
